@@ -38,7 +38,33 @@ var mainView = myApp.addView('.view-main', {
     domCache: true
 });
 
+var subjects = [];
+var subjectClasses = [];
+var temp = [];
 
+function loadSubjectsData(names) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            var tempData = this.responseText;
+            var data = tempData.split("*");
+            temp = [];
+            for(var i = 0; i < data.length; i++) {
+                if(data[i] != "") {
+                    if(names == "subjects") {
+                        subjects.push(data[i]);
+                    }
+                    else {
+                        temp.push(data[i]);
+                    }
+                }
+            }
+            subjectClasses.push(temp);
+        }
+    }
+    xmlhttp.open("GET", "subject.php?name="+names, false);
+    xmlhttp.send();
+}
 
 // Callbacks to run specific code for specific pages, for example for About page:
 myApp.onPageInit('about', function (page) {
@@ -63,6 +89,10 @@ $$('.login-screen .list-button').on('click', function () {
             mainView.router.back();
             $$('.login-screen input[name = "password"]').val("");
             if(firstLogin) {
+                loadSubjectsData("subjects");
+                for(var i= 0; i < subjects.length; i++) {
+                    loadSubjectsData("subject"+i);
+                }
                 addSubjects();
                 firstLogin = 0;
             }
@@ -99,12 +129,12 @@ setInterval(function() {
                 '<a href="#" class="link icon-only open-panel"></i></a></div></div>';
         nb.innerHTML = cDom;        
         navbars.append(nb);
-        for(var j = 0; j < subjectClasses[classNum].length; j++) {
+        for(var j = 0; j < subjectClasses[classNum+1].length; j++) {
             var lidom = document.createElement("li");
             lidom.className = "item-content"; 
             var dDom = '<a href="subject'+classNum+String.fromCharCode(65+classNum) +
                         '" class="item-link"> <div class="item-content"> <div class="item-inner">' +
-                        '<div class="item-title">' + subjectClasses[classNum][j] + '</div></div></div></a>';
+                        '<div class="item-title">' + subjectClasses[classNum+1][j] + '</div></div></div></a>';
             var ulname = ".ulsubject" + classNum;
             var ul = $$(ulname);
             lidom.innerHTML = dDom;
@@ -124,7 +154,6 @@ $$('#backToIndexBtn').on('click', function() {
     mainView.router.back();
 });
 
-setInterval(function(){ console.log(mainView.activePage.name); }, 100);
 
 // Generate dynamic page
 var dynamicPageIndex = 0;
@@ -155,11 +184,6 @@ function createContentPage() {
 	return;
 }
 
-var subjects = ["test1", "test2", "test3"];
-var subjectClasses = [["class0", "class1", "class2"],
-                        ["class3", "class4", "class5"],
-                        ["class6", "class7", "class8"]];
-
 function addSubjects() {
     var subjectul = $$('#subjectUL');
     for(var i = 0; i < subjects.length; i++) {
@@ -173,6 +197,7 @@ function addSubjects() {
     }
     var allPages = $$('#allPages');
     var navbars = $$('#navbars');
+    console.log(subjectClasses);
     for(var i = 0; i < subjects.length; i++) {
         var page = document.createElement("div");
         page.className = ("page cached");
@@ -194,12 +219,12 @@ function addSubjects() {
                 '<a href="#" class="link icon-only open-panel"></i></a></div></div>';
         nb.innerHTML = cDom;        
         navbars.append(nb);
-        for(var j = 0; j < subjectClasses[i].length; j++) {
+        for(var j = 0; j < subjectClasses[i+1].length; j++) {
             var lidom = document.createElement("li");
             lidom.className = "item-content"; 
             var dDom = '<a href="subject'+i+String.fromCharCode(65+i) +
                         '" class="item-link"> <div class="item-content"> <div class="item-inner">' +
-                        '<div class="item-title">' + subjectClasses[i][j] + '</div></div></div></a>';
+                        '<div class="item-title">' + subjectClasses[i+1][j] + '</div></div></div></a>';
             var ulname = ".ulsubject" + i;
             var ul = $$(ulname);
             lidom.innerHTML = dDom;
