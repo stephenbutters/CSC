@@ -1,7 +1,8 @@
 This is the project for CS 130 in Fall 2017
 
+Oct 14:
 Dynamically load contents into pages, no need to hardcode
 
-But need files containing all those subject names and class names
+Updated php file to read contents from files
 
-Then we can use PHP to get all those into arrays in my-app.js
+Showcase on: http://yourlieinapril.comze.com/
