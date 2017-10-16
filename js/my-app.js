@@ -116,7 +116,7 @@ $$('#registerBtn').on('click', function() {
     }, 1000);
 });
 
-var result;
+var result = "";
 function register(userName, userPwd, userPhone, userEmail) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -141,7 +141,7 @@ $$('.login-screen .list-button').on('click', function () {
     var uname = $$('.login-screen input[name = "username"]').val();
     var pwd = $$('.login-screen input[name = "password"]').val();
     accountValidate(uname, pwd);
-    if(result == 0) {
+    if(result == "0") {
         var temp = "Welcome, " + uname;
         $$('#userwelcome').html(temp);
         myApp.showPreloader('Loging In');
@@ -160,7 +160,6 @@ $$('.login-screen .list-button').on('click', function () {
             }
         }, 1500);
     } else {
-        console.log(ret == "0", ret);
         myApp.alert('One of your username and password is wrong.', 'ERROR');
     }
  });
