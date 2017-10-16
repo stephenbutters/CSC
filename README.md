@@ -8,4 +8,4 @@ Showcase on: http://yourlieinapril.comze.com/
 
 
 
-Sign up UI completed, still working on server-side for form-submitted handling
+Complete server-side user sign up form and log in form.

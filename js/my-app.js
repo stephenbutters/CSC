@@ -99,17 +99,35 @@ $$('#registerBtn').on('click', function() {
         myApp.alert('Your password should be more than 6 characters and contains only digits and letters.', 'Password');
         return;
     }
+
     //after this, we need to submit the form to server
     //if call server register file then return a value 0, it means pass, but with value 1
     //that means the username duplicated
     //but for now, we just assuming we pass the user register
+    if(register(tempUserName, tempUserPwd, tempUserPhone, tempUserEmail) == "0") {
+        myApp.alert('Duplicated user name.', 'ERROR');
+        return;
+    }
     myApp.showPreloader('Registering');
     setTimeout(function () {
         myApp.hidePreloader();
         myApp.closeModal('.popup');
-        myApp.alert('Kan is lazy, the back-end signup is still in process, sry.', 'INFO');     
+        myApp.alert('You can log in with your account now.', 'INFO');     
     }, 1000);
 });
+
+var result;
+function register(userName, userPwd, userPhone, userEmail) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            return this.responseText;
+        }
+    }
+    xmlhttp.open("GET", "registerUser.php?username="
+        +userName+"&userpwd="+userPwd+"&userphone="+userPhone+"&useremail="+userEmail, false);
+    xmlhttp.send();
+}
 
 // Callbacks to run specific code for specific pages, for example for About page:
 myApp.onPageInit('about', function (page) {
@@ -122,9 +140,8 @@ var firstLogin = 1;
 $$('.login-screen .list-button').on('click', function () {
     var uname = $$('.login-screen input[name = "username"]').val();
     var pwd = $$('.login-screen input[name = "password"]').val();
-    //DO SOMETHING ABOUT THE UNAME AND PWD, USE AJAX
-    if(uname == "hongkan" && pwd == "1234") {
-        //CHANGE THE USER NAME IN SIDE PANEL
+    accountValidate(uname, pwd);
+    if(result == 0) {
         var temp = "Welcome, " + uname;
         $$('#userwelcome').html(temp);
         myApp.showPreloader('Loging In');
@@ -143,9 +160,23 @@ $$('.login-screen .list-button').on('click', function () {
             }
         }, 1500);
     } else {
+        console.log(ret == "0", ret);
         myApp.alert('One of your username and password is wrong.', 'ERROR');
     }
  });
+
+function accountValidate(username, userpwd) {
+    console.log(username, userpwd);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            if(this.responseText == "0") result = "0";
+            else result = "1";
+        }
+    }
+    xmlhttp.open("GET", "userValidate.php?username="+username+"&userpwd="+userpwd, false);
+    xmlhttp.send();
+}
 
 var inClassPage = 0;
 var classPageName;
