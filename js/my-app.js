@@ -71,6 +71,7 @@ $$('#registerBtn').on('click', function() {
     var tempUserPwd = $$('.register-screen input[name = "password"]').val();
     var tempUserPhone = $$('.register-screen input[name = "phonenum"]').val();
     var tempUserEmail = $$('.register-screen input[name = "email"]').val();
+    var temprepeatPwd = $$('.register-screen input[name = "repeatedpassword"]').val();
     if(tempUserName == "" || tempUserPwd == "" || tempUserEmail == "" || tempUserPhone == "") {
         myApp.alert('Please fill out all the informations.', 'ERROR');
         return;
@@ -95,33 +96,80 @@ $$('#registerBtn').on('click', function() {
         myApp.alert('Cannot identify the email address, please check it one more tiem.', 'Email');
         return;
     }
+    if(tempUserPwd != temprepeatPwd) {
+        myApp.alert('Your passwords do not match.', 'Password');
+        return;
+    }
     if(tempUserPwd.length < 6 || !(/^\w+$/.test(tempUserPwd))) {
         myApp.alert('Your password should be more than 6 characters and contains only digits and letters.', 'Password');
         return;
     }
-
-    //after this, we need to submit the form to server
-    //if call server register file then return a value 0, it means pass, but with value 1
-    //that means the username duplicated
-    //but for now, we just assuming we pass the user register
-    if(register(tempUserName, tempUserPwd, tempUserPhone, tempUserEmail) == "0") {
+    register(tempUserName, tempUserPwd, tempUserPhone, tempUserEmail);
+    console.log("reuslt", result, tempUserName);
+    if(result != "0") {
         myApp.alert('Duplicated user name.', 'ERROR');
         return;
     }
+    result = "";
     myApp.showPreloader('Registering');
     setTimeout(function () {
         myApp.hidePreloader();
-        myApp.closeModal('.popup');
+        myApp.closeModal('.popupsignup');
         myApp.alert('You can log in with your account now.', 'INFO');     
-    }, 1000);
+    }, 500);
 });
+
+$$('#pwdchangeBtn').on('click', function() {
+    var tempUserName = $$('.pwdchange-screen input[name = "cpusername"]').val();
+    var tempUserPwd = $$('.pwdchange-screen input[name = "cppassword"]').val();
+    var tempUserEmail = $$('.pwdchange-screen input[name = "cpemail"]').val();
+    var temprepeatPwd = $$('.pwdchange-screen input[name = "cprepeatedpassword"]').val();
+    console.log(tempUserPwd, temprepeatPwd);
+    if(tempUserPwd != temprepeatPwd) {
+        myApp.alert('Your passwords do not match.', 'Password');
+        return;
+    }
+    if(tempUserPwd.length < 6 || !(/^\w+$/.test(tempUserPwd))) {
+        myApp.alert('Your password should be more than 6 characters and contains only digits and letters.', 'Password');
+        return;
+    }
+    changePwd(tempUserName, tempUserPwd, tempUserEmail);
+    console.log(result);
+    if(result != "0") {
+        myApp.alert('Could not find any matches.', 'ERROR');
+        return;
+    }
+    result = "";
+    myApp.showPreloader('Processing');
+    setTimeout(function () {
+        myApp.hidePreloader();
+        myApp.closeModal('.popuppwdchange');
+        myApp.alert('Password updated.', 'INFO');     
+    }, 500);
+});
+
+function changePwd(username, userpwd, useremail) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            if(this.responseText.equals("0")) result = "0";
+            else result = "1";
+        }
+    }
+    xmlhttp.open("GET", "changePwd.php?username="
+        +username+"&userpwd="+userpwd+"&useremail="+useremail, false);
+    xmlhttp.send();
+}
 
 var result = "";
 function register(userName, userPwd, userPhone, userEmail) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
-            return this.responseText;
+            console.log(this.responseText);
+            if(this.responseText.equals("0")) result = "0";
+            else result = "1";
         }
     }
     xmlhttp.open("GET", "registerUser.php?username="
@@ -142,6 +190,7 @@ $$('.login-screen .list-button').on('click', function () {
     var pwd = $$('.login-screen input[name = "password"]').val();
     accountValidate(uname, pwd);
     if(result == "0") {
+        result = "";
         var temp = "Welcome, " + uname;
         $$('#userwelcome').html(temp);
         myApp.showPreloader('Loging In');
@@ -169,7 +218,7 @@ function accountValidate(username, userpwd) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
-            if(this.responseText == "0") result = "0";
+            if(this.responseText.equals("0")) result = "0";
             else result = "1";
         }
     }

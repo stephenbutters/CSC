@@ -8,8 +8,9 @@
 			$line = fgets($file);
 			if($line != "") {
 				$temp = explode(" ", $line);
-				if($temp[0] == $username) {
+				if(strcmp($temp[0], $username) == 0) {
 					echo "1";
+					return;
 				}
 			}
 		}

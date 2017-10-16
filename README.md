@@ -9,3 +9,5 @@ Showcase on: http://yourlieinapril.comze.com/
 
 
 Complete server-side user sign up form and log in form.
+Complete server-side password change.
+More Bug fixed.

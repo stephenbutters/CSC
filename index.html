@@ -73,7 +73,7 @@
               </form>
               <a href="#" id="denglu" style="margin-left: 10px; margin-right: 10px;" class="button button-raised button-fill color-blue list-button open-preloader-title">登陆</a>
               <p class="buttons-row" style="margin: 10px;">
-                <a href="#" class="button color-blue">忘记密码了</a>
+                <a href="#" data-popup=".popuppwdchange" class="open-popup button color-blue">忘记密码了</a>
                 <a href="#" data-popup=".popupsignup" class="open-popup button color-blue">注册账号</a>
               </p>
               <br>
@@ -118,6 +118,14 @@
                         </div>
                       </div>
                     </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Repeat Password</div>
+                        <div class="item-input">
+                          <input type="password" name="repeatedpassword" placeholder="Your password">
+                        </div>
+                      </div>
+                    </li>
                     <li style="left:30%;"><input id="checkAgreement" type="checkbox" name="tongyishu" value="Tongyishu">一些同意协议</li>
                   </ul>
                 </div>
@@ -128,6 +136,56 @@
               </p>
             </div>
           </div>
+
+          <!-- CHANGE PASSWORD PAGE -->
+          <div class="popup popuppwdchange pwdchange-screen">
+            <div class="content-block"><br><br><br>
+              <div class="content-block-title" style="text-align: center;">CHANGE YOUR PASSWORD</div>
+              <form>
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Username</div>
+                        <div class="item-input">
+                          <input type="text" name="cpusername" placeholder="Your username">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Email</div>
+                        <div class="item-input">
+                          <input type="email" name="cpemail" placeholder="Your email">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">New Password</div>
+                        <div class="item-input">
+                          <input type="password" name="cppassword" placeholder="Your new password">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Repeat Password</div>
+                        <div class="item-input">
+                          <input type="password" name="cprepeatedpassword" placeholder="Your new password">
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+              <p class="buttons-row">
+                <a href="#" class="close-popup button button-fill color-red">Cancel</a>
+                <a href="#" id="pwdchangeBtn" class="button button-fill color-blue">Change</a>
+              </p>
+            </div>
+          </div>
+
         </div>
 
       </div>
