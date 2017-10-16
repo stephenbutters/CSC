@@ -8,5 +8,4 @@ Showcase on: http://yourlieinapril.comze.com/
 
 
 
-
-Work on php file for sign_up handling, tempority holding user info in a file
+Sign up UI completed, still working on server-side for form-submitted handling

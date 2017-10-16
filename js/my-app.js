@@ -66,6 +66,51 @@ function loadSubjectsData(names) {
     xmlhttp.send();
 }
 
+$$('#registerBtn').on('click', function() {
+    var tempUserName = $$('.register-screen input[name = "username"]').val();
+    var tempUserPwd = $$('.register-screen input[name = "password"]').val();
+    var tempUserPhone = $$('.register-screen input[name = "phonenum"]').val();
+    var tempUserEmail = $$('.register-screen input[name = "email"]').val();
+    if(tempUserName == "" || tempUserPwd == "" || tempUserEmail == "" || tempUserPhone == "") {
+        myApp.alert('Please fill out all the informations.', 'ERROR');
+        return;
+    }
+    if(!document.getElementById('checkAgreement').checked) {
+        myApp.alert('Please check the agreements.', 'ERROR');
+        return;
+    }
+    if(!(/^\w+$/.test(tempUserName))) {
+        myApp.alert('Your user name should only contains letters and numbers.', 'UserName');
+        return;
+        if(tempUserName.length < 6) {
+            myApp.alert('Your user name should be more than 6 characters.', 'UserName');
+        }
+        return;
+    }
+    if(!(/^\d+$/.test(tempUserPhone) || tempUserPhone.length != 10)) {
+        myApp.alert('Your phone number should be 10 digits.', 'PhoneNumber');
+        return;
+    }
+    if(!(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(tempUserEmail))) {
+        myApp.alert('Cannot identify the email address, please check it one more tiem.', 'Email');
+        return;
+    }
+    if(tempUserPwd.length < 6 || !(/^\w+$/.test(tempUserPwd))) {
+        myApp.alert('Your password should be more than 6 characters and contains only digits and letters.', 'Password');
+        return;
+    }
+    //after this, we need to submit the form to server
+    //if call server register file then return a value 0, it means pass, but with value 1
+    //that means the username duplicated
+    //but for now, we just assuming we pass the user register
+    myApp.showPreloader('Registering');
+    setTimeout(function () {
+        myApp.hidePreloader();
+        myApp.closeModal('.popup');
+        myApp.alert('Kan is lazy, the back-end signup is still in process, sry.', 'INFO');     
+    }, 1000);
+});
+
 // Callbacks to run specific code for specific pages, for example for About page:
 myApp.onPageInit('about', function (page) {
     // run createContentPage func after link was clicked
