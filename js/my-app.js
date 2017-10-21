@@ -105,7 +105,6 @@ $$('#registerBtn').on('click', function() {
         return;
     }
     register(tempUserName, tempUserPwd, tempUserPhone, tempUserEmail);
-    console.log("reuslt", result, tempUserName);
     if(result != "0") {
         myApp.alert('Duplicated user name.', 'ERROR');
         return;
@@ -115,7 +114,12 @@ $$('#registerBtn').on('click', function() {
     setTimeout(function () {
         myApp.hidePreloader();
         myApp.closeModal('.popupsignup');
-        myApp.alert('You can log in with your account now.', 'INFO');     
+        myApp.alert('You can log in with your account now.', 'INFO'); 
+        $$('.register-screen input[name = "username"]').val("");
+        $$('.register-screen input[name = "password"]').val("");
+        $$('.register-screen input[name = "phonenum"]').val("");
+        $$('.register-screen input[name = "email"]').val("");
+        $$('.register-screen input[name = "repeatedpassword"]').val("");    
     }, 500);
 });
 
@@ -124,7 +128,6 @@ $$('#pwdchangeBtn').on('click', function() {
     var tempUserPwd = $$('.pwdchange-screen input[name = "cppassword"]').val();
     var tempUserEmail = $$('.pwdchange-screen input[name = "cpemail"]').val();
     var temprepeatPwd = $$('.pwdchange-screen input[name = "cprepeatedpassword"]').val();
-    console.log(tempUserPwd, temprepeatPwd);
     if(tempUserPwd != temprepeatPwd) {
         myApp.alert('Your passwords do not match.', 'Password');
         return;
@@ -134,7 +137,6 @@ $$('#pwdchangeBtn').on('click', function() {
         return;
     }
     changePwd(tempUserName, tempUserPwd, tempUserEmail);
-    console.log(result);
     if(result != "0") {
         myApp.alert('Could not find any matches.', 'ERROR');
         return;
@@ -144,7 +146,11 @@ $$('#pwdchangeBtn').on('click', function() {
     setTimeout(function () {
         myApp.hidePreloader();
         myApp.closeModal('.popuppwdchange');
-        myApp.alert('Password updated.', 'INFO');     
+        myApp.alert('Password updated.', 'INFO');
+        $$('.pwdchange-screen input[name = "cpusername"]').val("");
+        $$('.pwdchange-screen input[name = "cppassword"]').val("");
+        $$('.pwdchange-screen input[name = "cpemail"]').val("");
+        $$('.pwdchange-screen input[name = "cprepeatedpassword"]').val("");     
     }, 500);
 });
 
@@ -152,8 +158,7 @@ function changePwd(username, userpwd, useremail) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-            if(this.responseText.equals("0")) result = "0";
+            if(this.responseText == "0") result = "0";
             else result = "1";
         }
     }
@@ -167,8 +172,7 @@ function register(userName, userPwd, userPhone, userEmail) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-            if(this.responseText.equals("0")) result = "0";
+            if(this.responseText == "0") result = "0";
             else result = "1";
         }
     }
@@ -214,11 +218,10 @@ $$('.login-screen .list-button').on('click', function () {
  });
 
 function accountValidate(username, userpwd) {
-    console.log(username, userpwd);
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
-            if(this.responseText.equals("0")) result = "0";
+            if(this.responseText == "0") result = "0";
             else result = "1";
         }
     }
@@ -229,8 +232,10 @@ function accountValidate(username, userpwd) {
 var inClassPage = 0;
 var classPageName;
 var classNum = -1;
+
 setInterval(function() {
-    if(mainView.activePage.name == "index" && inClassPage) {
+    console.log(mainView.activePage.name);
+    if((mainView.activePage.name == "classPage" || mainView.activePage.name =="index") && inClassPage) {
         inClassPage = 0;
         var allPages = $$('#allPages');
         var page = document.createElement("div");
@@ -249,9 +254,11 @@ setInterval(function() {
         nb.className = "navbar-inner cached";
         nb.setAttribute("data-page", classPageName);
         var cDom = '<div class="left"><a href="#" class="back link"> <i class="icon icon-back">' +
-                '</i><span>Back</span></a></div><div class="right" style="margin-right: 20px;">' +
-                '<a href="#" class="link icon-only open-panel"></i></a></div></div>';
-        nb.innerHTML = cDom;        
+                '</i><span>Back</span></a></div><div class="right">' +
+              '<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>' +
+            '</div></div>';
+        nb.innerHTML = cDom;
+        var navbars = $$('#navbars');        
         navbars.append(nb);
         for(var j = 0; j < subjectClasses[classNum+1].length; j++) {
             var lidom = document.createElement("li");
@@ -275,7 +282,7 @@ setInterval(function() {
 }, 500);
 
 $$('#backToIndexBtn').on('click', function() {
-    mainView.router.back();
+    mainView.router.load({pageName: 'index'});
 });
 
 
@@ -321,7 +328,6 @@ function addSubjects() {
     }
     var allPages = $$('#allPages');
     var navbars = $$('#navbars');
-    console.log(subjectClasses);
     for(var i = 0; i < subjects.length; i++) {
         var page = document.createElement("div");
         page.className = ("page cached");
@@ -338,9 +344,11 @@ function addSubjects() {
         var nb = document.createElement("div");
         nb.className = "navbar-inner cached";
         nb.setAttribute("data-page", "subject"+i);
+        nb.setAttribute("id", "subject"+i);
         var cDom = '<div class="left"><a href="#" class="back link"> <i class="icon icon-back">' +
-                '</i><span>Back</span></a></div><div class="right" style="margin-right: 20px;">' +
-                '<a href="#" class="link icon-only open-panel"></i></a></div></div>';
+                '</i><span>Back</span></a></div><div class="right">' +
+              '<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>' +
+            '</div></div>';
         nb.innerHTML = cDom;        
         navbars.append(nb);
         for(var j = 0; j < subjectClasses[i+1].length; j++) {

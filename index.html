@@ -14,8 +14,7 @@
     <div class="panel panel-left panel-reveal" style="top: 30%;">
       <div class="content-block">
         <div style="text-align: center;" class="content-block-title" id="userwelcome"></div>
-        <a href="#" id="backToIndexBtn" class="button close-panel">Find Class</a>
-        <a href="#" class="button">My Section</a>
+        <a href="#" id="backToIndexBtn" class="button close-panel">My Section</a>
         <a href="#" class="close-panel open-login-screen button">Log Off</a>
       </div>
     </div>
@@ -28,9 +27,23 @@
               <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
             </div>
           </div>
+          <div data-page="classPage" id="classPage" class="navbar-inner cached">
+            <div class="left">
+              <a href="#" class="back link">
+                <i class="icon icon-back"></i>
+                <span>Back</span>
+              </a>
+            </div>
+            <div class="right" style="margin-right: 20px;">
+              <a href="#" class="link icon-only open-panel"></a>
+            </div>
+          </div>
         </div>
         <div class="pages" id="allPages">
           <div data-page="index" class="page">
+            <a href="#classPage" style="position: absolute; margin-top: 100px;">ADD SECTION</a>
+          </div>
+          <div data-page="classPage" class="page cached">
             <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init" style="top: 65px; background-color: #4a5965; width: 90%; left: 5%; border-radius: 12px;">
               <div class="searchbar-input">
               <input type="search" style="border-radius: 12px;" placeholder="Search Subject"><a href="#" class="searchbar-clear"></a>
@@ -76,6 +89,7 @@
                 <a href="#" data-popup=".popuppwdchange" class="open-popup button color-blue">忘记密码了</a>
                 <a href="#" data-popup=".popupsignup" class="open-popup button color-blue">注册账号</a>
               </p>
+              <p style="width: 100%; text-align: center;"><br>Github Link:<br>https://github.com/HKanLiu/CSC</p>
               <br>
             </div>
 
