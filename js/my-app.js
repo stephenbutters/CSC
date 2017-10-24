@@ -41,8 +41,9 @@ var mainView = myApp.addView('.view-main', {
 var subjects = [];
 var subjectClasses = [];
 var temp = [];
+var classAVB = [];
 
-function loadSubjectsData(names) {
+function loadClasses() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
@@ -51,20 +52,36 @@ function loadSubjectsData(names) {
             temp = [];
             for(var i = 0; i < data.length; i++) {
                 if(data[i] != "") {
-                    if(names == "subjects") {
-                        subjects.push(data[i]);
-                    }
-                    else {
+                    if(data[i].charAt(0) == '-') {
+                        subjects.push(data[i].substring(1, data[i].length));
+                        var temp1 = data[i].split("(");
+                        if(temp1.length == 1) {
+                            classAVB.push(data[i].substring(1, data[i].length));
+                        } else {
+                            classAVB.push(temp1[1].substring(0, temp1[1].length - 2));
+                        }
+                        if(temp.length != 0) {
+                            subjectClasses.push(temp);
+                            temp = [];
+                        }
+                    } else {
                         temp.push(data[i]);
+                        if(i == data.length - 1) {
+                            subjectClasses.push(temp);
+                        }
                     }
                 }
             }
-            subjectClasses.push(temp);
         }
     }
-    xmlhttp.open("GET", "subject.php?name="+names, false);
+    xmlhttp.open("GET", "subject.php", false);
     xmlhttp.send();
 }
+
+$$('#sectionAddBtn').on('click', function() {
+    //just for test
+    mainView.router.load({pageName: 'index'});
+});
 
 $$('#registerBtn').on('click', function() {
     var tempUserName = $$('.register-screen input[name = "username"]').val();
@@ -204,14 +221,15 @@ $$('.login-screen .list-button').on('click', function () {
             mainView.router.back();
             $$('.login-screen input[name = "password"]').val("");
             if(firstLogin) {
-                loadSubjectsData("subjects");
-                for(var i= 0; i < subjects.length; i++) {
-                    loadSubjectsData("subject"+i);
-                }
+                // loadSubjectsData("subjects");
+                // for(var i= 0; i < subjects.length; i++) {
+                //     loadSubjectsData("subject"+i);
+                // }
+                loadClasses();
                 addSubjects();
                 firstLogin = 0;
             }
-        }, 1500);
+        }, 100);
     } else {
         myApp.alert('One of your username and password is wrong.', 'ERROR');
     }
@@ -233,57 +251,61 @@ var inClassPage = 0;
 var classPageName;
 var classNum = -1;
 
-setInterval(function() {
-    console.log(mainView.activePage.name);
-    if((mainView.activePage.name == "classPage" || mainView.activePage.name =="index") && inClassPage) {
-        inClassPage = 0;
-        var allPages = $$('#allPages');
-        var page = document.createElement("div");
-        page.className = ("page cached");
-        page.setAttribute("data-page", classPageName);
-        var bDom = '<form data-search-list=".list-search' + classPageName + '" data-search-in=".item-title"' +
-                'class="searchbar searchbar-init" style="top: 65px; background-color: #4a5965; width: 90%; left: 5%; border-radius: 12px;"> <div class="searchbar-input">' +
-                '<input type="search" style="border-radius: 12px" placeholder="Search Class">' +
-                '<a href="#" class="searchbar-clear"></a></div></form> <div class="searchbar-overlay">' +
-                '</div> <div class="page-content" style="top: 55px; text-align: center;">' +
-                '<div class="content-block"> <div class="list-block list-search' + classPageName + ' searchbar-found">' +
-                '<ul class="ul' + classPageName + '"></ul></div></div></div></div>';
-        page.innerHTML = bDom;
-        allPages.append(page);
-        var nb = document.createElement("div");
-        nb.className = "navbar-inner cached";
-        nb.setAttribute("data-page", classPageName);
-        var cDom = '<div class="left"><a href="#" class="back link"> <i class="icon icon-back">' +
-                '</i><span>Back</span></a></div><div class="right">' +
-              '<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>' +
-            '</div></div>';
-        nb.innerHTML = cDom;
-        var navbars = $$('#navbars');        
-        navbars.append(nb);
-        for(var j = 0; j < subjectClasses[classNum+1].length; j++) {
-            var lidom = document.createElement("li");
-            lidom.className = "item-content"; 
-            var dDom = '<a href="subject'+classNum+String.fromCharCode(65+classNum) +
-                        '" class="item-link"> <div class="item-content"> <div class="item-inner">' +
-                        '<div class="item-title">' + subjectClasses[classNum+1][j] + '</div></div></div></a>';
-            var ulname = ".ulsubject" + classNum;
-            var ul = $$(ulname);
-            lidom.innerHTML = dDom;
-            ul.append(lidom);
-        }
-    }
-    for(var i = 0; i < subjects.length; i++) {
-        if(mainView.activePage.name == ("subject"+i)) {
-            inClassPage = 1;
-            classNum = i;
-            classPageName = "subject" + i;
-        }
-    }
-}, 500);
-
 $$('#backToIndexBtn').on('click', function() {
     mainView.router.load({pageName: 'index'});
 });
+
+function popupClassInfo (classname, secFrom, secTo, time, status) {
+  myApp.modal({
+    title:  'Section Info',
+    text: 'Class: '+classname+'<br>Section From: '+secFrom+'<br>Section To: '+secTo+'<br>Time: '+time+'<br>Status: '+status,
+    buttons: [
+      {
+        text: 'Cancel',
+        onClick: function() {
+        }
+      },
+      {
+        text: 'Remove',
+        onClick: function() {
+          myApp.alert(classname+"_"+secFrom+"_"+secTo)
+        }
+      },
+    ]
+  })
+}
+
+function classAddUI(classname) {
+    document.getElementById("addClassSectionID").innerHTML = classname;
+    mainView.router.load({pageName: 'addClassSectionPage'});
+}
+
+
+
+function threeBtn(classname) {
+    myApp.modal({
+    title:  'Group Team Up',
+    text: 'Select "Raise a Team" to create a team, "Join a Team" to find and join a team.',
+    verticalButtons: true,
+    buttons: [
+      {
+        text: 'Raise a Team',
+        onClick: function() {
+          myApp.alert(classname)
+        }
+      },
+      {
+        text: 'Join a Team',
+        onClick: function() {
+          myApp.alert('Have not implemented')
+        }
+      },
+      {
+        text: 'Cancel'
+      },
+    ]
+  })
+}
 
 
 // Generate dynamic page
@@ -315,52 +337,56 @@ function createContentPage() {
 	return;
 }
 
+function addClass(i) {
+    var temp = document.getElementById("subjectULDiv");
+    temp.innerHTML = '';
+    for(var j = 0; j < subjectClasses[i].length; j++) {
+            var temp1 = subjectClasses[i][j].split(".");
+            var lidom = document.createElement("li");
+            lidom.className = "item-content"; 
+            var dDom = '<a onclick="classAddUI(\''+classAVB[i]+' - '+temp1[0]+'\')" href="#'+
+                        '" class="item-link"> <div class="item-content"> <div class="item-inner">' +
+                        '<div class="item-title">' + subjectClasses[i][j] + '</div></div></div></a>';
+            lidom.innerHTML = dDom;
+            temp.append(lidom);
+    }
+    mainView.router.load({pageName: 'classDivPage'});
+}
+
+function addClass2(i) {
+    var temp = document.getElementById("subjectULGroupDiv");
+    temp.innerHTML = '';
+    for(var j = 0; j < subjectClasses[i].length; j++) {
+            var temp1 = subjectClasses[i][j].split(".");
+            var lidom = document.createElement("li");
+            lidom.className = "item-content"; 
+            var dDom = '<a onclick="threeBtn(\''+classAVB[i]+' - '+temp1[0]+'\')" href="#'+
+                        '" class="item-link"> <div class="item-content"> <div class="item-inner">' +
+                        '<div class="item-title">' + subjectClasses[i][j] + '</div></div></div></a>';
+            lidom.innerHTML = dDom;
+            temp.append(lidom);
+    }
+    mainView.router.load({pageName: 'classDivPageGroup'});
+}
+
 function addSubjects() {
+    console.log(classAVB);
     var subjectul = $$('#subjectUL');
+    var subjectulg = $$('#subjectULGroup');
     for(var i = 0; i < subjects.length; i++) {
         var lidom = document.createElement("li");
+        var lidom2 = document.createElement("li");   
         lidom.className = "item-content";
-        var aDom = '<a href="#subject' + i + '" class="item-link">' +
+        lidom2.className = "item-content";
+        var aDom = '<a href="#" onclick="addClass('+i+')" class="item-link">' +
+                    '<div class="item-content"> <div class="item-inner">' +
+                    '<div class="item-title">' + subjects[i] + '</div></div></div></a>';
+        var aDom2 = '<a href="#" onclick="addClass2('+i+')" class="item-link">' +
                     '<div class="item-content"> <div class="item-inner">' +
                     '<div class="item-title">' + subjects[i] + '</div></div></div></a>';
         lidom.innerHTML = aDom;
         subjectul.append(lidom);
-    }
-    var allPages = $$('#allPages');
-    var navbars = $$('#navbars');
-    for(var i = 0; i < subjects.length; i++) {
-        var page = document.createElement("div");
-        page.className = ("page cached");
-        page.setAttribute("data-page", "subject"+i);
-        var bDom = '<form data-search-list=".list-searchsubject' + i + '" data-search-in=".item-title"' +
-                'class="searchbar searchbar-init" style="top: 65px; background-color: #4a5965; width: 90%; left: 5%; border-radius: 12px;"> <div class="searchbar-input">' +
-                '<input type="search" style="border-radius: 12px" placeholder="Search Class">' +
-                '<a href="#" class="searchbar-clear"></a></div></form> <div class="searchbar-overlay">' +
-                '</div> <div class="page-content" style="top: 55px; text-align: center;">' +
-                '<div class="content-block"> <div class="list-block list-searchsubject' + i + ' searchbar-found">' +
-                '<ul class="ulsubject' + i + '"></ul></div></div></div></div>';
-        page.innerHTML = bDom;
-        allPages.append(page);
-        var nb = document.createElement("div");
-        nb.className = "navbar-inner cached";
-        nb.setAttribute("data-page", "subject"+i);
-        nb.setAttribute("id", "subject"+i);
-        var cDom = '<div class="left"><a href="#" class="back link"> <i class="icon icon-back">' +
-                '</i><span>Back</span></a></div><div class="right">' +
-              '<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>' +
-            '</div></div>';
-        nb.innerHTML = cDom;        
-        navbars.append(nb);
-        for(var j = 0; j < subjectClasses[i+1].length; j++) {
-            var lidom = document.createElement("li");
-            lidom.className = "item-content"; 
-            var dDom = '<a href="subject'+i+String.fromCharCode(65+i) +
-                        '" class="item-link"> <div class="item-content"> <div class="item-inner">' +
-                        '<div class="item-title">' + subjectClasses[i+1][j] + '</div></div></div></a>';
-            var ulname = ".ulsubject" + i;
-            var ul = $$(ulname);
-            lidom.innerHTML = dDom;
-            ul.append(lidom);
-        }
+        lidom2.innerHTML = aDom2;
+        subjectulg.append(lidom2);
     }
 }

@@ -4272,6 +4272,7 @@ html.pixel-ratio-3 .card-footer:before {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 .modal.modal-in {
+  border-radius: 10px;
   opacity: 1;
   -webkit-transition-duration: 400ms;
   transition-duration: 400ms;
@@ -4291,6 +4292,7 @@ html.pixel-ratio-3 .card-footer:before {
   position: relative;
 }
 .modal-title {
+  text-align: center;
   font-weight: 500;
   font-size: 20px;
   color: #212121;
@@ -4323,12 +4325,13 @@ html.pixel-ratio-3 .card-footer:before {
 }
 .modal-buttons.modal-buttons-vertical .modal-button {
   margin-left: 0;
-  text-align: right;
   height: 48px;
   line-height: 48px;
-  border-radius: 0;
-  padding-left: 16px;
-  padding-right: 16px;
+  border-radius: 10px;
+  border: 1px solid #00bfff;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .modal-button,
 .modal-buttons .button {
@@ -4987,10 +4990,11 @@ html.with-statusbar-overlay.ios .popup.tablet-fullscreen {
 }
 .picker-modal .picker-footer.modal-buttons-vertical .modal-button {
   margin-left: 0;
-  text-align: right;
   height: 48px;
   line-height: 48px;
-  border-radius: 0;
+  border-radius: 10px;
+  border: 5px solid blue;
+  margin-bottom: 5px;
   padding-left: 16px;
   padding-right: 16px;
 }
