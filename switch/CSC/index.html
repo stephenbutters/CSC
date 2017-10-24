@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>CS 130</title>
+    <link rel="stylesheet" href="css/my-app.css">
+  </head>
+  <body>
+    <div class="statusbar-overlay"></div>
+    <div class="panel-overlay"></div>
+    <div class="panel panel-left panel-reveal" style="top: 30%;">
+      <div class="content-block">
+        <div style="text-align: center;" class="content-block-title" id="userwelcome"></div>
+        <a href="#" id="backToIndexBtn" class="button close-panel">My Section</a>
+        <a href="#" class="close-panel open-login-screen button">Log Off</a>
+      </div>
+    </div>
+    
+    <div class="views">
+      <div class="view view-main">
+        <div class="navbar" id="navbars">
+          <div data-page="index" class="navbar-inner">
+            <div class="right">
+              <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+            </div>
+          </div>
+          <div data-page="classPage" id="classPage" class="navbar-inner cached">
+            <div class="left">
+              <a href="#" class="back link">
+                <i class="icon icon-back"></i>
+                <span>Back</span>
+              </a>
+            </div>
+            <div class="right" style="margin-right: 20px;">
+              <a href="#" class="link icon-only open-panel"></a>
+            </div>
+          </div>
+        </div>
+        <div class="pages" id="allPages">
+          <div data-page="index" class="page">
+            <a href="#classPage" style="position: absolute; margin-top: 100px;">ADD SECTION</a>
+          </div>
+          <div data-page="classPage" class="page cached">
+            <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init" style="top: 65px; background-color: #4a5965; width: 90%; left: 5%; border-radius: 12px;">
+              <div class="searchbar-input">
+              <input type="search" style="border-radius: 12px;" placeholder="Search Subject"><a href="#" class="searchbar-clear"></a>
+              </div>
+            </form>
+            <div class="searchbar-overlay"></div>
+            <div class="page-content" style="top: 55px; text-align: center;">
+              <div class="list-block list-block-search searchbar-found" style="padding-left: 5%;">
+                <ul id="subjectUL">
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <!-- THE LOG IN PAGE -->
+          <div class="login-screen modal-in">
+          <br><br><br><br>
+          <div class="content-block-title" style="text-align: center;">UCLA SECSSION CHANGE LOG IN UI</div>
+              <form>
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Username</div>
+                        <div class="item-input">
+                          <input type="text" name="username" placeholder="Your username">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Password</div>
+                        <div class="item-input">
+                          <input type="password" name="password" placeholder="Your password">
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+              <a href="#" id="denglu" style="margin-left: 10px; margin-right: 10px;" class="button button-raised button-fill color-blue list-button open-preloader-title">登陆</a>
+              <p class="buttons-row" style="margin: 10px;">
+                <a href="#" data-popup=".popuppwdchange" class="open-popup button color-blue">忘记密码了</a>
+                <a href="#" data-popup=".popupsignup" class="open-popup button color-blue">注册账号</a>
+              </p>
+              <p style="width: 100%; text-align: center;"><br>Github Link:<br>https://github.com/HKanLiu/CSC</p>
+              <br>
+            </div>
+
+          <!-- THE SIGN UP PAGE -->
+          <div class="popup popupsignup register-screen">
+            <div class="content-block"><br><br><br>
+              <div class="content-block-title" style="text-align: center;">UCLA SECSSION CHANGE SIGN UP UI</div>
+              <form>
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Username</div>
+                        <div class="item-input">
+                          <input type="text" name="username" placeholder="Your username">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Phone</div>
+                        <div class="item-input">
+                          <input type="tel" name="phonenum" placeholder="Your phone#">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Email</div>
+                        <div class="item-input">
+                          <input type="email" name="email" placeholder="Your email">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Password</div>
+                        <div class="item-input">
+                          <input type="password" name="password" placeholder="Your password">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Repeat Password</div>
+                        <div class="item-input">
+                          <input type="password" name="repeatedpassword" placeholder="Your password">
+                        </div>
+                      </div>
+                    </li>
+                    <li style="left:30%;"><input id="checkAgreement" type="checkbox" name="tongyishu" value="Tongyishu">一些同意协议</li>
+                  </ul>
+                </div>
+              </form>
+              <p class="buttons-row">
+                <a href="#" class="close-popup button button-fill color-red">Cancel</a>
+                <a href="#" id="registerBtn" class="button button-fill color-green">Register</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- CHANGE PASSWORD PAGE -->
+          <div class="popup popuppwdchange pwdchange-screen">
+            <div class="content-block"><br><br><br>
+              <div class="content-block-title" style="text-align: center;">CHANGE YOUR PASSWORD</div>
+              <form>
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Username</div>
+                        <div class="item-input">
+                          <input type="text" name="cpusername" placeholder="Your username">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Email</div>
+                        <div class="item-input">
+                          <input type="email" name="cpemail" placeholder="Your email">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">New Password</div>
+                        <div class="item-input">
+                          <input type="password" name="cppassword" placeholder="Your new password">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Repeat Password</div>
+                        <div class="item-input">
+                          <input type="password" name="cprepeatedpassword" placeholder="Your new password">
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+              <p class="buttons-row">
+                <a href="#" class="close-popup button button-fill color-red">Cancel</a>
+                <a href="#" id="pwdchangeBtn" class="button button-fill color-blue">Change</a>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+  </body>
+</html>
