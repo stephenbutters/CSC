@@ -1,3 +1,5 @@
+![ICON](https://github.com/HKanLiu/CSC/blob/master/screenshot/fl.png)
+
 # BRUIN SWITCH
 
 To Help UCLA Students Change Class Sections, Switch Parking Permit, and Team Up a Group.
