@@ -103,6 +103,9 @@ $$('#registerBtn').on('click', function() {
         if(tempUserName.length < 6) {
             myApp.alert('Your user name should be more than 6 characters.', 'UserName');
         }
+        if(tempUserName[0] >= '0' && tempUserName[0] <= '9') {
+            myApp.alert('Your user name should start with a letter.', 'UserName');
+        }
         return;
     }
     if(!(/^\d+$/.test(tempUserPhone) || tempUserPhone.length != 10)) {
