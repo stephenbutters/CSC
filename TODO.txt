@@ -1,4 +1,9 @@
 TO-DO list:
 
-change password fill all the information alert
-register, change password, cancel btn erase previous input
++ EXPECT WHEN REGISTER A USER, A USERNAME TABLE IS CREATED (NOT PRIORITY)
+
++ ADJUST THE LAYOUT FOR REGISTER PAGE AND MAIN PAGE
+
++ DESIGN THE UI FOR GROUPING INFORMATION
+
++ START WORKING ON GROUPING BACKEND
