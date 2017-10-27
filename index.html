@@ -60,8 +60,29 @@
             <div class="right" style="margin-right: 20px;">
               <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
             </div>
-          </div>
+          </div> 
           <div data-page="classDivPageGroup" id="classPage" class="navbar-inner cached">
+            <div class="left">
+              <a href="#" class="back link">
+                <i class="icon icon-back"></i>
+                <span>Back</span>
+              </a>
+            </div>
+            <div class="right" style="margin-right: 20px;">
+              <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+            </div>
+          </div>
+          <div data-page="addClassSectionPage" id="classPage" class="navbar-inner cached">
+            <div class="left">
+              <a href="#" class="back link">
+                <i class="icon icon-back"></i>
+                <span>Back</span>
+              </a>
+            </div>
+            <div class="right" style="margin-right: 20px;">
+              <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+            </div>
+          </div><div data-page="raiseTeamPage" id="classPage" class="navbar-inner cached">
             <div class="left">
               <a href="#" class="back link">
                 <i class="icon icon-back"></i>
@@ -84,16 +105,7 @@
                 <div class="accordion-item-content">
                   <div class="content-block">
                     <div class="list-block">
-                      <ul>
-                        <li style="border-radius: 10px; margin-bottom: 10px; margin-top: 10px; height: 50px;" class="button button-fill button-blue modal33" onclick="popupClassInfo('CS130', '1A', '1B', '09/09/17', 'pending')">
-                          <a href="#" style="color: white;">CS 130</a>
-                        </li>
-                        <li style="border-radius: 10px; margin-bottom: 10px; margin-top: 10px; height: 50px;" class="button button-fill button-blue modal33" onclick="popupClassInfo('CS111', '1B', '1A', '09/09/17', 'pending')">
-                          <a href="#" style="color: white;">CS 111</a>
-                        </li>
-                        <li style="border-radius: 10px; margin-bottom: 10px; margin-top: 10px; height: 50px;" class="button button-fill button-blue modal33" onclick="popupClassInfo('ENGR110', '1A', '1B', '09/09/17', 'pending')">
-                          <a href="#" style="color: white;">ENGR 110</a>
-                        </li>
+                      <ul id="classSectionChangeDiv">
                       </ul>
                     </div>
                     <div class="button button-fill button-blue" style="margin-bottom: 10px; margin-top: 10px; border-radius: 10px; height: 30px; width: 40%; left: 30%;"><a href="#classPage" style="color: white;">ADD SECTION</a></div>
@@ -183,7 +195,8 @@
             </div>
           </div>
 
-          <div data-page="addClassSectionPage" class="page cached no-navbar">
+          <!-- CHANGE SECTION PAGE -->
+          <div data-page="addClassSectionPage" class="page cached">
             <div class="page-content" style="top: 20%;">
               <div class="content-block-title" style="text-align: center;" id="addClassSectionID"></div>
               <form>
@@ -192,7 +205,7 @@
                     <li class="item-content">
                       <div class="item-inner">
                         <div class="item-title label">Section From:</div>
-                        <select name="sectionFrom">
+                        <select name="sectionFrom" id="sectionFrom">
                           <option value="1A">1A</option>
                           <option value="1B">1B</option>
                           <option value="1C">1C</option>
@@ -209,7 +222,7 @@
                     <li class="item-content">
                       <div class="item-inner">
                         <div class="item-title label">Section To:</div>
-                        <select name="sectionTo">
+                        <select name="sectionTo" id="sectionTo">
                           <option value="1A">1A</option>
                           <option value="1B">1B</option>
                           <option value="1C">1C</option>
@@ -230,6 +243,53 @@
                 <a href="#" class="back button button-fill color-red">Cancel</a>
                 <a href="#" id="sectionAddBtn" class="button button-fill color-blue">Submit</a>
               </p>
+            </div>
+          </div>
+
+          <div data-page="raiseTeamPage" class="page cached">
+            <div class="page-content" style="top: 10%;">
+              <div class="content-block-title" style="text-align: center;" id="raiseTeamPageID"></div>
+              <form>
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Team Name</div>
+                        <div class="item-input">
+                          <input type="text" name="teamname" id="teamname" placeholder="Your Team Name">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Team Size</div>
+                        <div class="item-input">
+                          <input type="number" name="teamsize" id="teamsize" min="1" max="10" placeholder="Your Team Size">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Current Size</div>
+                        <div class="item-input">
+                          <input type="number" name="curteamsize" id="curteamsize" min="1" max="9" placeholder="Current Team Size">
+                        </div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Description</div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <textarea name="teamDescription" id="teamDescription" style="border: 2px solid #00bfff; width: 95%; left: 2%;"></textarea>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+              <p><a href="#index" style="margin-left: 40px; margin-right: 40px;" class="button button-fill button-blue" id="raiseteambtn">Submit</a></p>
             </div>
           </div>
           

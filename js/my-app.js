@@ -206,8 +206,9 @@ myApp.onPageInit('about', function (page) {
     });
 });
 var firstLogin = 1;
+var uname="";
 $$('.login-screen .list-button').on('click', function () {
-    var uname = $$('.login-screen input[name = "username"]').val();
+    uname = $$('.login-screen input[name = "username"]').val();
     var pwd = $$('.login-screen input[name = "password"]').val();
     accountValidate(uname, pwd);
     if(result == "0") {
@@ -251,6 +252,28 @@ var inClassPage = 0;
 var classPageName;
 var classNum = -1;
 
+$$('#sectionAddBtn').on('click', function() {
+    var curClassName = document.getElementById("addClassSectionID").innerHTML;
+    var tempFrom = document.getElementById("sectionFrom");
+    var curFrom = tempFrom.options[tempFrom.selectedIndex].value;
+    var tempTo = document.getElementById("sectionTo");
+    var curTo = tempTo.options[tempTo.selectedIndex].value;
+    if(curFrom == curTo) {
+        myApp.alert("Can't change to the same section.", 'ERROR');
+        return;
+    }
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            if(this.responseText != "0") {
+                myApp.alert('Something went wrong with response code '+this.responseText, 'ERROR');
+            }
+        }
+    }
+    xmlhttp.open("GET", "classSectionSubmit.php?userName="+uname+"&className="+curClassName+"&secfrom="+curFrom+"&secto="+curTo, true);
+    xmlhttp.send();
+});
+
 $$('#backToIndexBtn').on('click', function() {
     mainView.router.load({pageName: 'index'});
 });
@@ -268,7 +291,16 @@ function popupClassInfo (classname, secFrom, secTo, time, status) {
       {
         text: 'Remove',
         onClick: function() {
-          myApp.alert(classname+"_"+secFrom+"_"+secTo)
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if(this.readyState == 4 && this.status == 200) {
+                    if(this.responseText != "0") {
+                        myApp.alert('Something went wrong with response code '+this.responseText, 'ERROR');
+                    }
+                }
+            }
+            xmlhttp.open("GET", "removeClassSection.php?userName="+uname+"&className="+classname+"&secFrom="+secFrom+"&secTo="+secTo, true);
+            xmlhttp.send();
         }
       },
     ]
@@ -291,7 +323,12 @@ function threeBtn(classname) {
       {
         text: 'Raise a Team',
         onClick: function() {
-          myApp.alert(classname)
+          document.getElementById("raiseTeamPageID").innerHTML = classname;
+          document.getElementById("teamname").value = "";
+          document.getElementById("teamsize").value = 1;
+          document.getElementById("curteamsize").value = 1;
+          document.getElementById("teamDescription").value = "";
+          mainView.router.load({pageName: 'raiseTeamPage'});
         }
       },
       {
@@ -307,6 +344,30 @@ function threeBtn(classname) {
   })
 }
 
+setInterval(function() {
+    if(firstLogin == 0) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                //console.log(this.responseText[0][3]);
+                var obj = JSON.parse(this.responseText);
+                var tempID = document.getElementById("classSectionChangeDiv");
+                tempID.innerHTML = "";
+                for(var i = 0; i < obj.length; i++) {
+                    var lidom = document.createElement("li");
+                    lidom.className = "button button-fill button-blue modal33";
+                    lidom.style.cssText = 'border-radius: 10px; margin-bottom: 10px; margin-top: 10px; height: 50px;';
+                    lidom.setAttribute('onclick', "popupClassInfo('"+obj[i][0]+"', '"+obj[i][1]+"', '"+obj[i][2]+"', '"+obj[i][3]+"', 'pending')");
+                    var adom = '<a href="#" style="color: white;">'+obj[i][0]+'</a>';
+                    lidom.innerHTML = adom;
+                    tempID.append(lidom);
+                }
+            }
+        }
+        xmlhttp.open("GET", "updateClassSection.php?userName="+uname, true);
+        xmlhttp.send();
+    }   
+}, 1000);
 
 // Generate dynamic page
 var dynamicPageIndex = 0;

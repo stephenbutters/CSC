@@ -1,0 +1,4 @@
+TO-DO list:
+
+change password fill all the information alert
+register, change password, cancel btn erase previous input
