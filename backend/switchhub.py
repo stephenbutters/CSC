@@ -27,13 +27,17 @@ def main():
             password = arg
         elif opt in ('-a' '--action'):
             action = arg
-    mysql_connect()
+    cnx = mysql_connect()
+    create_user("YijingJiang", "12345", "yjy@ucla.edu", cnx)
+    create_user("PaulEggert", "123456", "eggert@cs.ucla.edu", cnx)
+
+    cnx.close()
 
 def mysql_connect():
     try:
         cnx = mysql.connector.connect(user='hongkan', password='aa6418463',
                                       host='realone.c0hpz27iuq3x.us-west-1.rds.amazonaws.com',
-                                      database='realone')
+                                      database='GJ_TEST_DB')
     except mysql.connector.Error as err:
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
             print("Something is wrong with your user name or password")
@@ -43,7 +47,18 @@ def mysql_connect():
             print(err)
     else:
         print("connected!")
-        cnx.close()
+        return cnx
+
+def create_user(fullname, passwd, email, cnx):
+    cursor = cnx.cursor()
+    add_user = (    "INSERT INTO users"
+                    "(fullname, email, hashed_passwd)"
+                    "VALUES(%s, %s, %s)"
+                )
+    data_add_user = (fullname, email, passwd)
+    cursor.execute(add_user, data_add_user)
+    cnx.commit()
+    cursor.close()
 
 if __name__ == "__main__":
     main()
