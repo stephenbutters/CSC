@@ -1,4 +1,19 @@
 ----------------------------------------------
+Aerospace Studies
+
+A. Leadership Laboratory. (No credit)
+
+1A-1B-1C. Foundation of U.S. Air Force. (2-2-2)
+
+20A-20B-20C. Evolution of U.S. Air Force Air and Space Power. (2-2-2)
+
+130A-130B-130C. Air Force Leadership Studies. (4-4-4)
+
+140A-140B-140C. National Security Affairs/Preparation for Active Duty. (4-4-4)
+
+197. Individual Studies in Aerospace Studies. (2 or 4)
+
+----------------------------------------------
 African American Studies
 
 1. Introduction to Black Studies. (5)
@@ -914,7 +929,8 @@ C287. Contemporary Art Collections in Los Angeles. (2)
 597. Preparation for Master&rsquo;s Comprehensive Examination. (2 to 12)
 
 ----------------------------------------------
-    Art History
+
+    Art History
 
 20. Ancient Art. (5)
 
@@ -1339,7 +1355,8 @@ C272A. Preservation of Art. (4)
 C272C. Art: Fakes, Forgeries, and Authenticity. (4)
 
 ----------------------------------------------
-    Asian American Studies
+
+    Asian American Studies
 
 10. History of Asian Americans. (5)
 
@@ -1568,7 +1585,8 @@ M290Q. Social Welfare Policy in Asian American Communities. (4)
 598. Research for and Preparation of MA Thesis. (2 to 8)
 
 ----------------------------------------------
-    Asian
+
+    Asian
 
 M20. Visible Language: Study of Writing. (5)
 
@@ -1701,7 +1719,8 @@ M292. Japan in Age of Empire. (4)
 599. Research for and Preparation of PhD Dissertation. (4 to 8)
 
 ----------------------------------------------
-    Chinese
+
+    Chinese
 
 1. Elementary Modern Chinese. (5)
 
@@ -1914,7 +1933,8 @@ C275. Introduction to Chinese Thought. (4)
 297B. Seminar: Research Topics in Modern Chinese and Sinophone Culture. (4)
 
 ----------------------------------------------
-    Filipino
+
+    Filipino
 
 1. Introductory Filipino. (5)
 
@@ -1943,7 +1963,8 @@ C275. Introduction to Chinese Thought. (4)
 155. Topics in Filipino Cinema and Literature. (4)
 
 ----------------------------------------------
-    Hindi-Urdu
+
+    Hindi-Urdu
 
 1. Introductory Hindi-Urdu. (5)
 
@@ -1958,7 +1979,8 @@ C275. Introduction to Chinese Thought. (4)
 109. Advanced Tutorial Instruction in Hindi-Urdu. (2)
 
 ----------------------------------------------
-    Indonesian
+
+    Indonesian
 
 1. Introductory Indonesian. (5)
 
@@ -1977,7 +1999,8 @@ C275. Introduction to Chinese Thought. (4)
 109. Advanced Tutorial Instruction in Indonesian. (2)
 
 ----------------------------------------------
-    Japanese
+
+    Japanese
 
 1. Elementary Modern Japanese. (5)
 
@@ -2138,7 +2161,8 @@ C282. Japanese Folklore. (4)
 297B. Seminar: Modern Japan. (4)
 
 ----------------------------------------------
-    Korean
+
+    Korean
 
 1. Elementary Modern Korean. (5)
 
@@ -2309,7 +2333,8 @@ C260. Korean Buddhism. (4)
 296A-296B. Seminars: Topics in Modern Korean Cultural History. (4-4)
 
 ----------------------------------------------
-		South Asian
+
+		South Asian
 
 M60. Religion in Classical India: Introduction. (5)
 
@@ -2346,7 +2371,8 @@ M222A-M222B. Vedic. (4-4)
 C260. Buddhism in India. (4)
 
 ----------------------------------------------
-    Southeast Asian
+
+    Southeast Asian
 
 M20. Visible Language: Study of Writing. (5)
 
@@ -2371,7 +2397,8 @@ M60. Religious Traditions in Southeast Asia. (4)
 205. Southeast Asian Culture and History. (4)
 
 ----------------------------------------------
-    Thai
+
+    Thai
 
 1. Introductory Thai. (5)
 
@@ -2392,7 +2419,8 @@ M60. Religious Traditions in Southeast Asia. (4)
 109. Advanced Tutorial Instruction in Thai. (2)
 
 ----------------------------------------------
-    Vietnamese
+
+    Vietnamese
 
 1. Introductory Vietnamese. (5)
 
@@ -2437,7 +2465,8 @@ M186. Korea and Vietnam: Comparative Modern Histories. (4)
 297B. Topics in Contemporary Vietnamese Culture. (4)
 
 ----------------------------------------------
-    Atmospheric and Oceanic Sciences
+
+    Atmospheric and Oceanic Sciences
 
 1. Climate Change: From Puzzles to Policy. (4)
 
@@ -2646,7 +2675,8 @@ M275A-M275B-M275C. Seminars: Space Physics. (2-2-2)
 599. Research for PhD Dissertation. (2 to 8)
 
 ----------------------------------------------
-    Bioengineering
+
+    Bioengineering
 
 10. Introduction to Bioengineering. (2)
 
@@ -2857,7 +2887,8 @@ M296D. Introduction to Computational Cardiology. (4)
 599. Research for and Preparation of PhD Dissertation. (2 to 16)
 
 ----------------------------------------------
-    Bioinformatics
+
+    Bioinformatics
 
 M202. Bioinformatics Interdisciplinary Research Seminar. (4)
 
@@ -14516,7 +14547,8 @@ M270E. Advanced Topics and Research in Biomedical Systems Modeling and Computing
 M290A-M290B. Child Abuse and Neglect. (2-2)
 
 ----------------------------------------------
-    Microbiology, Immunology, and Molecular Genetics
+
+    Microbiology, Immunology, and Molecular Genetics
 
 5. Science of Memory and Learning. (4)
 
@@ -14623,7 +14655,8 @@ CM256. Human Genetics and Genomics. (5)
 599. Research for PhD Dissertation. (2 to 12)
 
 ----------------------------------------------
-    Military Science
+
+    Military Science
 
 Z. Leadership Laboratory. (No credit)
 
@@ -14656,7 +14689,8 @@ Z. Leadership Laboratory. (No credit)
 197. Individual Studies in Military Science. (2 to 4)
 
 ----------------------------------------------
-    Molecular and Medical Pharmacology
+
+    Molecular and Medical Pharmacology
 
 M110A. Drugs: Mechanisms, Uses, and Misuse. (4)
 
@@ -14723,7 +14757,8 @@ M262B. Molecular Mechanisms of Human Diseases II. (2)
 599. Research for and Preparation of PhD Dissertation. (4 to 12)
 
 ----------------------------------------------
-    Molecular Biology
+
+    Molecular Biology
 
 252. Writing for Science (1)
 
@@ -14738,7 +14773,8 @@ M262B. Molecular Mechanisms of Human Diseases II. (2)
 599. PhD Dissertation Research and Writing. (2 to 12)
 
 ----------------------------------------------
-    Molecular, Cell, and Developmental Biology
+
+    Molecular, Cell, and Developmental Biology
 
 30H. Collaborative Undergraduate Research Laboratory in Yeast, Genetics, and Molecular Biology. (5)
 
@@ -14901,7 +14937,8 @@ M272. Stem Cell Biology and Regenerative Medicine. (4)
 599. PhD Dissertation Research and Writing. (2 to 12)
 
 ----------------------------------------------
-    Molecular, Cellular, and Integrative Physiology
+
+    Molecular, Cellular, and Integrative Physiology
 
 M200G. Biology of Learning and Memory. (4)
 
@@ -14940,7 +14977,8 @@ M286. Neurophysics: Brain-Mind Problem. (4)
 599. Research for PhD Dissertation. (2 to 10)
 
 ----------------------------------------------
-    Molecular Toxicology
+
+    Molecular Toxicology
 
 M110A. Drugs: Mechanisms, Uses, and Misuse. (4)
 
@@ -14965,7 +15003,8 @@ M247. Advanced Concepts in Gene-Environment Interactions. (4)
 599. PhD Dissertation Research. (8 to 12)
 
 ----------------------------------------------
-    Music
+
+    Music
 
 1A-1B. Fundamentals of Music. (4-4)
 
@@ -15268,7 +15307,8 @@ C485. Chamber Ensembles. (2)
 599. Guidance of PhD or DMA Dissertation. (4, 8, or 12)
 
 ----------------------------------------------
-    Music History
+
+    Music History
 
 3. Introduction to Classical Music. (5)
 
@@ -15397,7 +15437,8 @@ CM186. Music Industry. (4)
 199. Direced Research in Music History. (1 to 4)
 
 ----------------------------------------------
-    Musicology
+
+    Musicology
 
 200A. Introduction to Music Scholarship. (6)
 
@@ -15450,7 +15491,8 @@ C490T. Early Music Ensemble. (4)
 599. Guidance of PhD Dissertation. (4, 8, or 12)
 
 ----------------------------------------------
-    Naval Science
+
+    Naval Science
 
 A. Naval Science Laboratory. (No credit)
 
@@ -15618,7 +15660,8 @@ C277. Variable Topics in Ancient Near East. (4)
 599. PhD Dissertation Research and Preparation. (2 to 8)
 
 ----------------------------------------------
-    Arabic
+
+    Arabic
 
 1A-1B-1C. Elementary Standard Arabic. (5-5-5)
 
@@ -15707,7 +15750,8 @@ M288. Modern Arab Thought. (4)
 599. PhD Dissertation Research and Preparation. (2 to 8)
 
 ----------------------------------------------
-    Armenian
+
+    Armenian
 
 101A-101B-101C. Elementary Modern Western Armenian. (5-5-5)
 
@@ -15778,7 +15822,8 @@ C266. Armenian Film and Culture. (5)
 599. PhD Dissertation Research and Preparation. (2 to 8)
 
 ----------------------------------------------
-    Hebrew
+
+    Hebrew
 
 1A-1B-1C. Elementary Hebrew. (5-5-5)
 
@@ -15845,7 +15890,8 @@ C240. Modern Hebrew Poetry and Prose. (4)
 599. PhD Dissertation Research and Preparation. (2 to 8)
 
 ----------------------------------------------
-    Iranian
+
+    Iranian
 
 1A-1B-1C. Elementary Persian. (5-5-5)
 
@@ -15924,7 +15970,8 @@ CM259. Archaeology of Iran. (4)
 599. PhD Dissertation Research and Preparation. (2 to 8)
 
 ----------------------------------------------
-    Islamic Studies
+
+    Islamic Studies
 
 M107. Islam in West. (5)
 
@@ -15957,7 +16004,8 @@ M112. Archaeology and Art of Christian and Islamic Egypt. (4)
 599. PhD Dissertation Research and Preparation. (2 to 8)
 
 ----------------------------------------------
-    Jewish Studies
+
+    Jewish Studies
 
 M10. Social, Cultural, and Religious Institutions of Judaism. (5)
 
@@ -16018,7 +16066,8 @@ M187. Holocaust in Literature. (4)
 202. Colonization and Nationalism: Jewish Settlement in Palestine-Israel, 1882 to 1948. (4)
 
 ----------------------------------------------
-    Middle Eastern Studies
+
+    Middle Eastern Studies
 
 M50A. First Civilizations. (5)
 
@@ -16055,7 +16104,8 @@ C222. History, Memory, and Identity in Israel. (4)
 290. Seminar: Paleography. (4)
 
 ----------------------------------------------
-    Near Eastern Languages
+
+    Near Eastern Languages
 
 M20. Visible Language: Study of Writing. (5)
 
@@ -16076,7 +16126,8 @@ CM214. Teaching and Learning of Heritage Languages. (4)
 599. PhD Dissertation Research and Preparation. (2 to 8)
 
 ----------------------------------------------
-    Semitics
+
+    Semitics
 
 110. Neo-Aramaic. (4)
 
@@ -16121,7 +16172,8 @@ CM214. Teaching and Learning of Heritage Languages. (4)
 599. PhD Dissertation Research and Preparation. (2 to 8)
 
 ----------------------------------------------
-    Turkic Languages
+
+    Turkic Languages
 
 101A-101B-101C. Elementary Turkish. (5-5-5)
 
@@ -16158,7 +16210,8 @@ M115A-M115B-M115C. Elementary Azeri. (4-4-4)
 599. PhD Dissertation Research and Preparation. (2 to 8)
 
 ----------------------------------------------
-    Neurobiology
+
+    Neurobiology
 
 106. Functional Neuroanatomy. (4)
 
@@ -16205,7 +16258,8 @@ M287. Dynamics of Neural Microcircuits. (4)
 599. Dissertation Research for PhD Candidates. (2 to 12)
 
 ----------------------------------------------
-    Neuroscience
+
+    Neuroscience
 
 M201. Cell, Developmental, and Molecular Neurobiology. (6)
 
@@ -16268,7 +16322,8 @@ M287. Dynamics of Neural Microcircuits. (4)
 599. Dissertation Research for PhD Candidates. (2 to 12)
 
 ----------------------------------------------
-    Nursing
+
+    Nursing
 
 3. Human Physiology for Healthcare Providers. (5)
 
@@ -16545,7 +16600,8 @@ M298. Interdisciplinary Response to Infectious Disease Emergencies: Nursing Pers
 599. Research for and Preparation of PhD Dissertation. (2 to 12)
 
 ----------------------------------------------
-    Oral Biology
+
+    Oral Biology
 
 201A, 201C. Advanced Oral Biology. (3-3)
 
@@ -16608,7 +16664,8 @@ M256. Interdisciplinary Response to Infectious Disease Emergencies: Dentistry Pe
 599. Research for and Preparation of PhD Dissertation. (4 to 8)
 
 ----------------------------------------------
-    Pathology and Laboratory Medicine
+
+    Pathology and Laboratory Medicine
 
 110. Introduction to Cytogenetics. (4)
 
@@ -16659,7 +16716,8 @@ M272. Stem Cell Biology and Regenerative Medicine. (4)
 599. Preparation of PhD Dissertation. (2 to 12)
 
 ----------------------------------------------
-    Philosophy
+
+    Philosophy
 
 1. Beginnings of Western Philosophy. (5)
 
@@ -16964,7 +17022,8 @@ M257A-257B. Philosophy Legal Theory. (1 to 8 each)
 599. Research for PhD Dissertation. (2 to 12)
 
 ----------------------------------------------
-    Astronomy
+
+    Astronomy
 
 3. Nature of Universe. (5)
 
@@ -17051,7 +17110,8 @@ M297. Research Tutorial: Astroparticle Physics. (2 or 4)
 599. PhD Research and Writing. (10 to 12)
 
 ----------------------------------------------
-    Physics
+
+    Physics
 
 1A. Physics for Scientists and Engineers: Mechanics. (5)
 
@@ -17354,7 +17414,8 @@ M370B. Integrated Science Instruction Methods. (4)
 599. PhD Research and Writing. (4 to 12)
 
 ----------------------------------------------
-    Physics and Biology in Medicine
+
+    Physics and Biology in Medicine
 
 199. Directed Research in Biomedical Physics. (2 to 4)
 
@@ -17445,7 +17506,8 @@ M424. Functional Magnetic Resonance Imaging Journal Club. (2)
 599. Research for PhD Dissertation. (4 to 12)
 
 ----------------------------------------------
-    Physiology
+
+    Physiology
 
 100. Elements of Human Physiology. (6)
 
@@ -17468,7 +17530,8 @@ M210. Molecular and Cellular Mechanisms of Neural Integration. (5)
 599. Dissertation Research for PhD Candidates. (2 to 12)
 
 ----------------------------------------------
-    Political Science
+
+    Political Science
 
 6. Introduction to Data Analysis. (5)
 
@@ -17869,7 +17932,8 @@ M287A-M287B. Immigration, Racial Change, and Education in 21st-Century Metropoli
 599. Research for and Preparation of PhD Dissertation. (2 to 12)
 
 ----------------------------------------------
-    Psychiatry and Biobehavioral Sciences
+
+    Psychiatry and Biobehavioral Sciences
 
 79. Applied Positive Neuroscience: Skills for Improving Productivity and Wellbeing. (5)
 
@@ -17996,7 +18060,8 @@ M490. Educational Advocacy. (2)
 596P. Individual Studies in Psychiatry. (2 to 12)
 
 ----------------------------------------------
-    Psychology
+
+    Psychology
 
 10. Introductory Psychology. (4)
 
@@ -18605,7 +18670,8 @@ C296B. Research Group Seminars: Practicum. (1)
 599. Research for PhD Dissertation. (2 to 12)
 
 ----------------------------------------------
-    Public Health
+
+    Public Health
 
 10. Introduction to Public Health. (4)
 
@@ -18630,7 +18696,8 @@ M273. Responsible Conduct of Research in Global Health. (2)
 490. Public Speaking Mastery for Public Health Professional. (2)
 
 ----------------------------------------------
-    Public Policy
+
+    Public Policy
 
 10A. Introduction to Public Policy. (5)
 
@@ -18849,7 +18916,8 @@ M295. Law and Poor. (4)
 596. Directed Studies. (2 to 8)
 
 ----------------------------------------------
-    Study of Religion
+
+    Study of Religion
 
 M4. Introduction to History of Religions. (5)
 
@@ -18956,7 +19024,8 @@ M186C. Jesus of Nazareth in Historical Research. (4)
 199. Directed Research in Study of Religion. (2 to 4)
 
 ----------------------------------------------
-    Scandinavian
+
+    Scandinavian
 
 1. Elementary Swedish. (4)
 
@@ -19157,7 +19226,8 @@ C280. Literature and Scandinavian Society. (4)
 599. Research for and Preparation of PhD Dissertation. (4)
 
 ----------------------------------------------
-    Russian
+
+    Russian
 
 1. Elementary Russian. (5)
 
@@ -19308,7 +19378,8 @@ C277. Studies in Russian Literature: Nabokov. (4)
 296. Seminar: History of Russian Culture. (4)
 
 ----------------------------------------------
-    Slavic
+
+    Slavic
 
 5. Introduction to Eurasia. (5)
 
@@ -19363,7 +19434,8 @@ M229. Introduction to Slavic Bibliography. (2)
 599. Research for PhD Dissertation. (2 to 12)
 
 ----------------------------------------------
-    Social Welfare
+
+    Social Welfare
 
 100A. Introduction to Social Welfare: Policies and Programs. (4)
 
@@ -19596,7 +19668,8 @@ M290V. Management Challenges and Tools for Nonprofit Sector. (4)
 599. PhD Dissertation Research in Social Welfare. (2 to 12)
 
 ----------------------------------------------
-    Society and Genetics
+
+    Society and Genetics
 
 5. Integrative Approaches to Human Biology and Society. (5)
 
@@ -19673,7 +19746,8 @@ M144. Stress and Society: Biology and Inequality. (4)
 375. Teaching Apprentice Practicum. (1 to 4)
 
 ----------------------------------------------
-    Sociology
+
+    Sociology
 
 1. Introductory Sociology. (5)
 
@@ -20046,7 +20120,8 @@ M402. Practices of Evaluation in Health Services: Theory and Methodology. (4)
 599. Research in Sociology for PhD Candidates. (4 to 12)
 
 ----------------------------------------------
-    Indigenous Languages of the Americas
+
+    Indigenous Languages of the Americas
 
 1. Elementary Zapotec. (4)
 
@@ -20069,7 +20144,8 @@ M15A-M15B-M15C. Intermediate Nahuatl. (4-4-4)
 596. Directed Studies in Quechua. (1 to 8)
 
 ----------------------------------------------
-    Portuguese
+
+    Portuguese
 
 1. Elementary Portuguese. (4)
 
@@ -20196,7 +20272,8 @@ M251A-M251B. Studies in Galegan-Portuguese and Old Spanish. (4-4)
 599. Research for PhD Dissertation. (4 to 12)
 
 ----------------------------------------------
-    Spanish
+
+    Spanish
 
 1. Elementary Spanish. (4)
 
@@ -20417,7 +20494,8 @@ M251A-M251B. Studies in Galegan-Portuguese and Old Spanish. (4-4)
 599. Research for PhD Dissertation. (4 to 12)
 
 ----------------------------------------------
-    Statistics
+
+    Statistics
 
 10. Introduction to Statistical Reasoning. (5)
 
@@ -20638,7 +20716,8 @@ M286. Seminar: Statistical Problem Solving for Population Biology. (2)
 599. PhD Dissertation Research. (2 to 12)
 
 ----------------------------------------------
-    Theater
+
+    Theater
 
 1A-1B-1C. Introduction to Dance for Music Theater. (1-1-1)
 
@@ -21229,7 +21308,8 @@ C458C. Sound Design Technology. (4)
 599. PhD Dissertation in Theater Arts. (2 to 12)
 
 ----------------------------------------------
-    Urban Planning
+
+    Urban Planning
 
 M110. Inequality and Democracy: Analysis and Praxis of Public Problems. (4)
 
@@ -21516,7 +21596,8 @@ M470. Improving Worker Health: Social Movements, Policy Debates, and Public Heal
 599. PhD Dissertation Research in Planning. (2 to 12)
 
 ----------------------------------------------
-    Dance
+
+    Dance
 
 1. Global Perspectives on Dance. (5)
 
@@ -21663,7 +21744,8 @@ C415. Advanced Modern/Postmodern Dance. (2)
 498. Professional Internship in Dance. (4, 8, or 12)
 
 ----------------------------------------------
-    World Arts and Cultures
+
+    World Arts and Cultures
 
 1. Introduction to World Arts and Cultures. (5)
 
@@ -21876,7 +21958,8 @@ C284. Documentary: Theories and Approaches. (5)
 599. Research for and Preparation of PhD Dissertation. (2 to 12)
 
 ----------------------------------------------
-    English as a Second Language
+
+    English as a Second Language
 
 20. Conversation and Fluency. (4)
 

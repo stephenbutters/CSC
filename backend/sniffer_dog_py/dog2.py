@@ -30,7 +30,7 @@ def add_class(dept, classNo, classTitle, cnx):
 
 def main():
     cnx = mysql_connect()
-    lines = [line.rstrip('\n') for line in open('result2.txt')][:40]
+    lines = [line.rstrip('\n') for line in open('result3.txt')][:40]
 
     dept = ""
     classNo = ""
