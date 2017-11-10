@@ -61,14 +61,12 @@ def create_user(fullname, passwd, email, cnx):
     cnx.commit()
     cursor.close()
 
-
 def login_user(email, passwd, cnx):
     cursor = cnx.cursor(buffered=True)
     query = (
         "SELECT id FROM users WHERE email = %s AND hashed_passwd = %s"
     )
     cursor.execute(query, (email, passwd))
-
     cnx.commit()
     print(cursor.rowcount) 
     cursor.close()
