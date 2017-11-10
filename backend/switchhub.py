@@ -1,15 +1,12 @@
+"""
+yeeee
+"""
+
 import sys
 import getopt
+import mysql.connector
+from mysql.connector import errorcode
 
-# total = len(sys.argv)
-# cmdargs = str(sys.argv)
-# print ("The total numbers of args passed to the script: %d " % total)
-# print ("Args list: %s " % cmdargs)
-# print ("Script name: %s" % str(sys.argv[0]))
-
-# f = open("test.txt", "w")
-# f.write("yoooo")
-# f.close()
 
 
 def main():
@@ -30,39 +27,50 @@ def main():
             password = arg
         elif opt in ('-a' '--action'):
             action = arg
-    
-    # user = "potplus"
-    # password = "1234"
+    cnx = mysql_connect()
+    # create_user("YijingJiang", "12345", "yjy@ucla.edu", cnx)
+    # create_user("PaulEggert", "123456", "eggert@cs.ucla.edu", cnx)
+    login_user("gjyu63@ucla.edu", "1234", cnx)
 
-    
-    if action == "newuser":
-        if user.find("@") > 0:
-            print newuser(user, password)
+    cnx.close()
+
+def mysql_connect():
+    try:
+        cnx = mysql.connector.connect(user='hongkan', password='aa6418463',
+                                      host='realone.c0hpz27iuq3x.us-west-1.rds.amazonaws.com',
+                                      database='GJ_TEST_DB')
+    except mysql.connector.Error as err:
+        if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+            print("Something is wrong with your user name or password")
+        elif err.errno == errorcode.ER_BAD_DB_ERROR:
+            print("Database does not exist")
         else:
-            print -1 #not a email
-    elif action == "loginuser":
-        print loginuser(user, password)
+            print(err)
     else:
-        print "not implemented"
+        print("connected!")
+        return cnx
+
+def create_user(fullname, passwd, email, cnx):
+    cursor = cnx.cursor()
+    add_user = (    "INSERT INTO users"
+                    "(fullname, email, hashed_passwd)"
+                    "VALUES(%s, %s, %s)"
+                )
+    data_add_user = (fullname, email, passwd)
+    cursor.execute(add_user, data_add_user)
+    cnx.commit()
+    cursor.close()
+
+def login_user(email, passwd, cnx):
+    cursor = cnx.cursor(buffered=True)
+    query = (
+        "SELECT id FROM users WHERE email = %s AND hashed_passwd = %s"
+    )
+    cursor.execute(query, (email, passwd))
+    cnx.commit()
+    print(cursor.rowcount) 
+    cursor.close()
     
-def newuser(user, password):
-    ifile = open("user.txt", "a")
-    ifile.write(user + "," + password + "\n")
-    return "1"
-
-def loginuser(user, password):
-    with open("user.txt", "r") as f:
-        userlists = f.readlines()
-
-    print userlists
-    print "\n"
-    print user + "," + password + "\n"
-    print 
-    for l in userlists:
-        if l.rstrip() == user + "," + password:
-            return "1"
-    return -1 #login failed
-
 
 if __name__ == "__main__":
     main()
