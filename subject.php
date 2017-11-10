@@ -1,6 +1,5 @@
 <?php
-	$fileName = $_GET["name"];
-	if($file = fopen($fileName.".txt", "r")) {
+	if($file = fopen("result.txt", "r")) {
 		while(!feof($file)) {
 			$line = fgets($file);
 			if($line != "") {

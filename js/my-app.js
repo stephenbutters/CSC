@@ -268,7 +268,7 @@ $$('#sectionAddBtn').on('click', function() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
-            if(this.responseText != "0") {
+            if(parseInt(this.responseText) != 0) {
                 myApp.alert('Something went wrong with response code '+this.responseText, 'ERROR');
             }
         }
@@ -297,7 +297,7 @@ function popupClassInfo (classname, secFrom, secTo, time, status) {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
                 if(this.readyState == 4 && this.status == 200) {
-                    if(this.responseText != "0") {
+                    if(parseInt(this.responseText) != 0) {
                         myApp.alert('Something went wrong with response code '+this.responseText, 'ERROR');
                     }
                 }
