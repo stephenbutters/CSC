@@ -29,7 +29,7 @@ for i in range(164, 926):
     if pendingpage.find("hour") >= 0 and (pendingpage.find("Lower-Division Courses") >= 0 or pendingpage.find("Graduate Courses") >= 0) and pendingpage.lower().find("lecture") >= 0:
         urlist.append(pendingurl)
 
-ofile=open("result.txt", "w")
+ofile=open("result2.txt", "w")
 
 for url in urlist:
     ofile.write("----------------------------------------------\n")
@@ -39,7 +39,8 @@ for url in urlist:
     ofile.write(dep_name[0])
     ofile.write("\n\n")
     for ln in m:
-        if ln.find("<span class") > 0:
+        # if ln.find("<span class") > 0:
+        if ln.find("<span") > 0:
             continue
         ofile.write(ln)
         ofile.write("\n\n")
