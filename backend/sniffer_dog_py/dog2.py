@@ -43,7 +43,8 @@ def main():
             classNo = l[:dot_place]
             classTitle = l[dot_place+1:]
             #start querying
-            add_class(dept, classNo, classTitle, cnx)
+            #add_class(dept, classNo, classTitle, cnx)
+            print ( str(dept) + "," + str(classNo) + "," + str(classTitle) + "\n")
     cnx.close()
 
 

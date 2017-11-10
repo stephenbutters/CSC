@@ -30,7 +30,7 @@ def main():
     cnx = mysql_connect()
     # create_user("YijingJiang", "12345", "yjy@ucla.edu", cnx)
     # create_user("PaulEggert", "123456", "eggert@cs.ucla.edu", cnx)
-    login_user("gjyu63@ucla.edu", "1234", cnx)
+    login_user("eggert@cs.ucla.edu", "123456", cnx)
 
     cnx.close()
 
@@ -68,7 +68,12 @@ def login_user(email, passwd, cnx):
     )
     cursor.execute(query, (email, passwd))
     cnx.commit()
-    print(cursor.rowcount) 
+    # print(cursor.rowcount) 
+    
+    
+    for (id) in cursor:
+        print("{}".format(id))
+
     cursor.close()
     
 
