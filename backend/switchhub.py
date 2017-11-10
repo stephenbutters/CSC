@@ -28,8 +28,9 @@ def main():
         elif opt in ('-a' '--action'):
             action = arg
     cnx = mysql_connect()
-    create_user("YijingJiang", "12345", "yjy@ucla.edu", cnx)
-    create_user("PaulEggert", "123456", "eggert@cs.ucla.edu", cnx)
+    # create_user("YijingJiang", "12345", "yjy@ucla.edu", cnx)
+    # create_user("PaulEggert", "123456", "eggert@cs.ucla.edu", cnx)
+    login_user("gjyu63@ucla.edu", "1234", cnx)
 
     cnx.close()
 
@@ -59,6 +60,19 @@ def create_user(fullname, passwd, email, cnx):
     cursor.execute(add_user, data_add_user)
     cnx.commit()
     cursor.close()
+
+
+def login_user(email, passwd, cnx):
+    cursor = cnx.cursor(buffered=True)
+    query = (
+        "SELECT id FROM users WHERE email = %s AND hashed_passwd = %s"
+    )
+    cursor.execute(query, (email, passwd))
+
+    cnx.commit()
+    print(cursor.rowcount) 
+    cursor.close()
+    
 
 if __name__ == "__main__":
     main()
