@@ -82,7 +82,19 @@
             <div class="right" style="margin-right: 20px;">
               <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
             </div>
-          </div><div data-page="raiseTeamPage" id="classPage" class="navbar-inner cached">
+          </div>
+          <div data-page="raiseTeamPage" id="classPage" class="navbar-inner cached">
+            <div class="left">
+              <a href="#" class="back link">
+                <i class="icon icon-back"></i>
+                <span>Back</span>
+              </a>
+            </div>
+            <div class="right" style="margin-right: 20px;">
+              <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+            </div>
+          </div> 
+          <div data-page="jointeampage" id="classPage" class="navbar-inner cached">
             <div class="left">
               <a href="#" class="back link">
                 <i class="icon icon-back"></i>
@@ -262,17 +274,26 @@
                     </li>
                     <li class="item-content">
                       <div class="item-inner">
-                        <div class="item-title label">Team Size</div>
-                        <div class="item-input">
-                          <input type="number" name="teamsize" id="teamsize" min="1" max="10" placeholder="Your Team Size">
-                        </div>
+                        <div class="item-title label">Class Section</div>
+                        <select name="groupsectionTo" id="groupsectionTo">
+                          <option value="1A">1A</option>
+                          <option value="1B">1B</option>
+                          <option value="1C">1C</option>
+                          <option value="1D">1D</option>
+                          <option value="1E">1E</option>
+                          <option value="1F">1F</option>
+                          <option value="1G">1G</option>
+                          <option value="1H">1H</option>
+                          <option value="1I">1I</option>
+                          <option value="1J">1J</option>
+                        </select>
                       </div>
                     </li>
                     <li class="item-content">
                       <div class="item-inner">
-                        <div class="item-title label">Current Size</div>
+                        <div class="item-title label">Recruting Number</div>
                         <div class="item-input">
-                          <input type="number" name="curteamsize" id="curteamsize" min="1" max="9" placeholder="Current Team Size">
+                          <input type="number" name="curteamsize" id="recruteremain" min="1" max="9" placeholder="Current Team Size">
                         </div>
                       </div>
                     </li>
@@ -290,6 +311,25 @@
                 </div>
               </form>
               <p><a href="#index" style="margin-left: 40px; margin-right: 40px;" class="button button-fill button-blue" id="raiseteambtn">Submit</a></p>
+            </div>
+          </div>
+
+          <div data-page="jointeampage" class="page cached">
+            <div class="page-content" style="top: 10%;">
+              <div class="content-block-title" style="text-align: center;" id="jointeampageid"></div>
+              <div class="list-block">
+                <ul id="loadteam">
+                  <li class="button button-fill button-blue" onclick="joingroupBtn('cs 130', '1A', 'Team 404', '4', 'testing')" style="width: 80%; left: 10%; border-radius: 10px; margin: 10px 0 10px 0; height: 50px;">
+                    <a href="#" style="color: white;">Team 404</a>
+                  </li>
+                  <li class="button button-fill button-blue" onclick="joingroupBtn('cs 111', '1A', 'Moon', '4', 'testing')" style="width: 80%; left: 10%; border-radius: 10px; margin: 10px 0 10px 0; height: 50px;">
+                    <a href="#" style="color: white;">Moon</a>
+                  </li>
+                  <li class="button button-fill button-blue" onclick="joingroupBtn('cs 130', '1B', 'Kanpai', '4', 'testing')" style="width: 80%; left: 10%; border-radius: 10px; margin: 10px 0 10px 0; height: 50px;">
+                    <a href="#" style="color: white;">Kanpai</a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           

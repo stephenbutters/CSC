@@ -38,10 +38,18 @@ var mainView = myApp.addView('.view-main', {
     domCache: true
 });
 
-var subjects = [];
-var subjectClasses = [];
+var subjects = []; //First call, get the subjects
+var subjectClasses = []; //Second call, get all the classes
 var temp = [];
 var classAVB = [];
+var userid = undefined;
+
+/*
+    Parameters: none
+    Return value: none
+    Divide into two functions, first one gets all the subjects, second one gets
+    all the classes corresponding to that subject
+*/
 
 function loadClasses() {
     var xmlhttp = new XMLHttpRequest();
@@ -78,10 +86,26 @@ function loadClasses() {
     xmlhttp.send();
 }
 
+/*
+    Parameters: none
+    Return value: none
+    Load back to index page
+*/
+
 $$('#sectionAddBtn').on('click', function() {
     //just for test
     mainView.router.load({pageName: 'index'});
 });
+
+/*
+    Parameters: none
+    Return value: none
+    Test all the input fields in Sign Up page
+        --UserName: ['a'-'z'], ['A'-'Z'], [0-9], letter must be the first character
+        --Password: at least 6 characters digit and letter only
+        --Phone number: 10 digits
+        --Email:
+*/
 
 $$('#registerBtn').on('click', function() {
     var tempUserName = $$('.register-screen input[name = "username"]').val();
@@ -142,6 +166,12 @@ $$('#registerBtn').on('click', function() {
         $$('.register-screen input[name = "repeatedpassword"]').val("");    
     }, 500);
 });
+
+/*
+    Parameter: none
+    Return value; none
+    Change Password, 
+*/
 
 $$('#pwdchangeBtn').on('click', function() {
     var tempUserName = $$('.pwdchange-screen input[name = "cpusername"]').val();
@@ -328,8 +358,8 @@ function threeBtn(classname) {
         onClick: function() {
           document.getElementById("raiseTeamPageID").innerHTML = classname;
           document.getElementById("teamname").value = "";
-          document.getElementById("teamsize").value = 1;
-          document.getElementById("curteamsize").value = 1;
+          document.getElementById("groupsectionTo").value = '1A';
+          document.getElementById("recruteremain").value = 1;
           document.getElementById("teamDescription").value = "";
           mainView.router.load({pageName: 'raiseTeamPage'});
         }
@@ -337,7 +367,8 @@ function threeBtn(classname) {
       {
         text: 'Join a Team',
         onClick: function() {
-          myApp.alert('Have not implemented')
+          document.getElementById("jointeampageid").innerHTML = classname;
+          getTeamInfo(classname);
         }
       },
       {
@@ -345,6 +376,69 @@ function threeBtn(classname) {
       },
     ]
   })
+}
+
+function joingroupBtn(classname, section, teamname, recrutesize, desc) {
+    myApp.modal({
+    title:  '<div class="buttons-row">'+
+              '<a href="#tab1" class="button active tab-link">Team</a>'+
+              '<a href="#tab2" class="button tab-link">Desc</a>'+
+            '</div>',
+    text: '<div class="tabs">'+
+            '<div class="tab active" id="tab1">Class Name: '+ classname + '<br>Section: ' + section + '<br>Team Name: ' + teamname + '<br>Remaining: ' + recrutesize + '</div>'+
+            '<div class="tab" id="tab2">'+ desc +'</div>'+
+          '</div>',
+    verticalButtons: true,
+    buttons: [
+      {
+        text: 'Join',
+        onClick: function() {
+          myApp.alert('hello', 'ahha');
+        }
+      },
+      {
+        text: 'Cancel'
+      },
+    ]
+  })
+}
+
+var teaminfos = [
+    {
+        'classname': 'cs 130',
+        'section': '1A',
+        'teamsize': '4',
+        'currentsize': '3',
+        'description': 'testing'
+    },
+    {
+        'classname': 'cs 111',
+        'section': '1A',
+        'teamsize': '6',
+        'currentsize': '2',
+        'description': 'testing'
+    }
+];
+
+function getTeamInfo(className) {
+    //teaminfos = undefined;
+    //call server side file and get the json array then call loadteaminfo()
+    loadteaminfo();
+}
+
+function loadteaminfo() {
+    // var loadinfo = document.getElementById("loadteam");
+    // loadinfo.innerHTML = '';
+    // for(var i = 0; i < teaminfos.length; i++) {
+    //     var lidom = document.createElement("li");
+    //     lidom.className = "item-content"; 
+    //     var dDom = '<a onclick="classAddUI(\''+classAVB[i]+' - '+temp1[0]+'\')" href="#'+
+    //                 '" class="item-link"> <div class="item-content"> <div class="item-inner">' +
+    //                 '<div class="item-title">' + subjectClasses[i][j] + '</div></div></div></a>';
+    //     lidom.innerHTML = dDom;
+    //     temp.append(lidom);
+    // }
+    mainView.router.load({pageName: 'jointeampage'});
 }
 
 setInterval(function() {
@@ -434,7 +528,7 @@ function addClass2(i) {
 }
 
 function addSubjects() {
-    console.log(classAVB);
+    console.log(subjectClasses);
     var subjectul = $$('#subjectUL');
     var subjectulg = $$('#subjectULGroup');
     for(var i = 0; i < subjects.length; i++) {
@@ -454,3 +548,5 @@ function addSubjects() {
         subjectulg.append(lidom2);
     }
 }
+
+

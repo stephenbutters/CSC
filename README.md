@@ -54,9 +54,12 @@ This section requires users to enter their current parking lot number, and parki
 ![CHANGESECTION UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/changesectionui.png)
 
 #### 4. If You Want to Add a New Section in 'Group Team Up', It Has the Same Instructions as Step 3, but After You Select Your Class, It Pops up a Modal that Asks You If You Want to Raise a Team or Join a Team
-
+##### 4.1 Group Team Up
 ![TEAMUP UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/teamupui.png)
 ![TEAMUP UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/raiseteamui.png)
+##### 4.2 Join Team
+![TEAMUP UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/jointeamui.png)
+![TEAMUP UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/jointeampopup.png)
 
 #### 5. Log Out
 

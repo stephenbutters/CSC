@@ -1,5 +1,7 @@
 TO-DO list:
 
+
+Front End:
 + EXPECT WHEN REGISTER A USER, A USERNAME TABLE IS CREATED (NOT PRIORITY)
 
 + ADJUST THE LAYOUT FOR REGISTER PAGE AND MAIN PAGE
@@ -7,3 +9,20 @@ TO-DO list:
 + DESIGN THE UI FOR GROUPING INFORMATION
 
 + START WORKING ON GROUPING BACKEND
+
+
+
+BackEnd:
+
++ Add class section to the user, given userid, change to, change from, class id(COM SCI - 33), RETURN: "0" success "1" fail
+
++ Log In, given username, pwd, RETURN userid success "-1" fail
+
++ Change pwd, given username
+
++ Register, given username, email, phone number, pwd
+
++ Remove class, given userid, class id, section from, section to, "0" su "1"
+
++ Load case, given userid, return json string
+
