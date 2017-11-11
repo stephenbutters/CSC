@@ -407,16 +407,16 @@ var teaminfos = [
     {
         'classname': 'cs 130',
         'section': '1A',
-        'teamsize': '4',
-        'currentsize': '3',
-        'description': 'testing'
+        'teamname': 'Team 404',
+        'recrutesize': '3',
+        'description': 'testingtestingtestingtestingtestingtestingtestingtestingtesting'
     },
     {
         'classname': 'cs 111',
         'section': '1A',
-        'teamsize': '6',
-        'currentsize': '2',
-        'description': 'testing'
+        'teamname': 'Moon',
+        'recrutesize': '2',
+        'description': 'testingtestingtestingtestingtestingtestingtestingtestingtesting'
     }
 ];
 
@@ -427,17 +427,17 @@ function getTeamInfo(className) {
 }
 
 function loadteaminfo() {
-    // var loadinfo = document.getElementById("loadteam");
-    // loadinfo.innerHTML = '';
-    // for(var i = 0; i < teaminfos.length; i++) {
-    //     var lidom = document.createElement("li");
-    //     lidom.className = "item-content"; 
-    //     var dDom = '<a onclick="classAddUI(\''+classAVB[i]+' - '+temp1[0]+'\')" href="#'+
-    //                 '" class="item-link"> <div class="item-content"> <div class="item-inner">' +
-    //                 '<div class="item-title">' + subjectClasses[i][j] + '</div></div></div></a>';
-    //     lidom.innerHTML = dDom;
-    //     temp.append(lidom);
-    // }
+    var loadinfo = document.getElementById("loadteam");
+    loadinfo.innerHTML = '';
+    for(var i = 0; i < teaminfos.length; i++) {
+        var lidom = document.createElement("li");
+        lidom.className = "button button-fill button-blue";
+        lidom.style.cssText = 'width: 80%; left: 10%; border-radius: 10px; margin: 10px 0 10px 0; height: 50px;';
+        lidom.setAttribute('onclick', "joingroupBtn('"+teaminfos[i].classname+"', '"+teaminfos[i].section+"', '"+teaminfos[i].teamname+"', '"+teaminfos[i].recrutesize+"', '"+teaminfos[i].description+"')");
+        var dDom = '<a href="#" style="color: white;">'+teaminfos[i].teamname+'</a>';
+        lidom.innerHTML = dDom;
+        loadinfo.append(lidom);
+    }
     mainView.router.load({pageName: 'jointeampage'});
 }
 
