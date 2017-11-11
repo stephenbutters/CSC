@@ -5,34 +5,49 @@ yeeee
 import sys
 import getopt
 import mysql.connector
+import LoginManager
+
 from mysql.connector import errorcode
-
-
 
 def main():
     # my code here
-    options, remainder = getopt.gnu_getopt(sys.argv[1:], 'upa', ['user=', 
+    options, remainder = getopt.gnu_getopt(sys.argv[1:], 'upcea', ['user=', 
                                                              'password=',
-                                                             'action=',
+                                                             'cellphone=',
+                                                             'email=',
+                                                             'action=',                                          
                                                           ])
 
     user = "empty_user"
     password = "empty_password"
+    cellphone = "empty_phone"
     action = "empty_action"
+    email = "empty_email"
 
     for opt, arg in options:
         if opt in ('-u', '--user'):
             user = arg
         elif opt in ('-p', '--password'):
             password = arg
+        elif opt in ('-c', '--cellphone'):
+            cellphone = arg
+        elif opt in ('-e', '--email'):
+            email = arg
         elif opt in ('-a' '--action'):
             action = arg
     cnx = mysql_connect()
-    # create_user("YijingJiang", "12345", "yjy@ucla.edu", cnx)
-    # create_user("PaulEggert", "123456", "eggert@cs.ucla.edu", cnx)
-    login_user("eggert@cs.ucla.edu", "123456", cnx)
 
+    if action == "createuser" :
+        login_manager = LoginManager.loginManager(cnx)
+        # login_manager.create_user(user, password, email, cellphone, cnx)
+        print(login_manager.create_user(user, password, email, cellphone))
+    elif action == "loginuser" :
+        login_manager = LoginManager.loginManager(cnx)
+        print(login_manager.login_user(user, password))
     cnx.close()
+
+
+
 
 def mysql_connect():
     try:
@@ -50,33 +65,7 @@ def mysql_connect():
         print("connected!")
         return cnx
 
-def create_user(fullname, passwd, email, cnx):
-    cursor = cnx.cursor()
-    add_user = (    "INSERT INTO users"
-                    "(fullname, email, hashed_passwd)"
-                    "VALUES(%s, %s, %s)"
-                )
-    data_add_user = (fullname, email, passwd)
-    cursor.execute(add_user, data_add_user)
-    cnx.commit()
-    cursor.close()
-
-def login_user(email, passwd, cnx):
-    cursor = cnx.cursor(buffered=True)
-    query = (
-        "SELECT id FROM users WHERE email = %s AND hashed_passwd = %s"
-    )
-    cursor.execute(query, (email, passwd))
-    cnx.commit()
-    # print(cursor.rowcount) 
     
-    
-    for (id) in cursor:
-        print("{}".format(id))
-
-    cursor.close()
-    
-
 if __name__ == "__main__":
     main()
 

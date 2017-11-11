@@ -30,7 +30,7 @@ def add_class(dept, classNo, classTitle, cnx):
 
 def main():
     cnx = mysql_connect()
-    lines = [line.rstrip('\n') for line in open('result3.txt')][:40]
+    lines = [line.rstrip('\n') for line in open('result3.txt')]
 
     dept = ""
     classNo = ""
@@ -43,8 +43,8 @@ def main():
             classNo = l[:dot_place]
             classTitle = l[dot_place+1:]
             #start querying
-            #add_class(dept, classNo, classTitle, cnx)
-            print ( str(dept) + "," + str(classNo) + "," + str(classTitle) + "\n")
+            add_class(dept, classNo, classTitle, cnx)
+            # print ( str(dept) + "," + str(classNo) + "," + str(classTitle))
     cnx.close()
 
 
