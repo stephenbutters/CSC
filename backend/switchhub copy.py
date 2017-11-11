@@ -15,11 +15,7 @@ def main():
     options, remainder = getopt.gnu_getopt(sys.argv[1:], 'upcea', ['user=',
                                                              'password=',
                                                              'cellphone=',
-                                                             'email=', 
-                                                             'classstring=',
-                                                             'sectionfrom=',
-                                                             'sectionto=',
-                                                             'userid=',                                                  
+                                                             'email=',                                                   
                                                              'action='                                       
                                                           ])
 
@@ -42,15 +38,15 @@ def main():
             cellphone = arg
         elif opt in ('-e', '--email'):
             email = arg
-        elif opt in ('--userid'):
-            userid = arg
-        elif opt in ('--classstring'):
-            classstring = arg
-        elif opt in ('--sectionfrom'):
-            sectionfrom = arg
-        elif opt in ('--sectionto'):
-            sectionto = arg
-        elif opt in ('--action'):
+        # elif opt in ('-i', '--id'):
+        #     userid = arg
+        # elif opt in ('-l','--lecturestring'):
+        #     classstring = arg
+        # elif opt in ('-f','--from'):
+        #     sectionfrom = arg
+        # elif opt in ('-t', '--to'):
+        #     sectionto = arg
+        elif opt in ('-a' '--action'):
             action = arg
         else:
             print "wrong args"
@@ -66,12 +62,6 @@ def main():
     elif action == "addclass" :
         discussion_manager = DiscussionManager.discussionManager(cnx)
         print(discussion_manager.add_class(userid, classstring, sectionfrom, sectionto))
-    elif action == "removeclass" :
-        discussion_manager = DiscussionManager.discussionManager(cnx)
-        print(discussion_manager.remove_class(userid, classstring))
-    elif action == "getjson" :
-        discussion_manager = DiscussionManager.discussionManager(cnx)
-        discussion_manager.getJSON(userid)
     cnx.close()
 
 
