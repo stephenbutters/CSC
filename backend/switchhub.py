@@ -90,7 +90,6 @@ def mysql_connect():
         else:
             print(err)
     else:
-        print("connected!")
         return cnx
 
     
