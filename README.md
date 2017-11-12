@@ -36,6 +36,8 @@ This section requires users to enter their current parking lot number, and parki
 ![LOG-IN UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/loginui.png)
 
 #### 1.0 Sign Up Your Account, You Have to Fill In All the Information
+##### DON'T WORRY, YOUR INFORMATIN WILL BE ENCRYPTED
+##### AND YOU HAVE TO GO TO YOUR EMAIL TO VERIFY YOUR ACCOUNT
 
 ![REGISTER UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/registerui.png)
 
