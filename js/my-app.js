@@ -277,7 +277,10 @@ $$('.login-screen .list-button').on('click', function () {
                 firstLogin = 0;
             }
         }, 100);
-    } else {
+    } else if(result == "2"){
+        myApp.alert('You have to go to your email and verfiy your account first.', 'INFO');
+    } 
+    else {
         myApp.alert('One of your username and password is wrong.', 'ERROR');
     }
  });
@@ -287,6 +290,7 @@ function accountValidate(username, userpwd) {
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
             if(parseInt(this.responseText) == 0) result = "0";
+            else if(parseInt(this.responseText) == 2) result = "2";
             else result = "1";
         }
     }

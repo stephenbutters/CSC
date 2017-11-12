@@ -13,7 +13,12 @@
 		if(mysqli_num_rows($result) <= 0) {
 			echo "1";
 		} else {
-			echo "0";
+			$row = mysqli_fetch_assoc($result);
+			if($row['active'] == 0) {
+				echo "2";
+			} else {
+				echo "0";
+			}
 		}
  	}
 ?>
