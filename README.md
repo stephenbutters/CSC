@@ -4,6 +4,7 @@
 
 To Help UCLA Students Change Class Sections, Switch Parking Permit, and Team Up a Group.
 Showcase on: http://yourlieinapril.comze.com/
+New Features on: http://ec2-13-57-38-240.us-west-1.compute.amazonaws.com/
 
 ## Introduction/Motivation
 

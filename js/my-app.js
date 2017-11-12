@@ -177,16 +177,21 @@ $$('#pwdchangeBtn').on('click', function() {
     var tempUserName = $$('.pwdchange-screen input[name = "cpusername"]').val();
     var tempUserPwd = $$('.pwdchange-screen input[name = "cppassword"]').val();
     var tempUserEmail = $$('.pwdchange-screen input[name = "cpemail"]').val();
+    var tempUserPhone = $$('.pwdchange-screen input[name = "cpphone"]').val();
     var temprepeatPwd = $$('.pwdchange-screen input[name = "cprepeatedpassword"]').val();
     if(tempUserPwd != temprepeatPwd) {
         myApp.alert('Your passwords do not match.', 'Password');
+        return;
+    }
+    if(!(/^\d+$/.test(tempUserPhone) || tempUserPhone.length != 10)) {
+        myApp.alert('Your phone number should be 10 digits.', 'PhoneNumber');
         return;
     }
     if(tempUserPwd.length < 6 || !(/^\w+$/.test(tempUserPwd))) {
         myApp.alert('Your password should be more than 6 characters and contains only digits and letters.', 'Password');
         return;
     }
-    changePwd(tempUserName, tempUserPwd, tempUserEmail);
+    changePwd(tempUserName, tempUserPhone, tempUserPwd, tempUserEmail);
     if(result != "0") {
         myApp.alert('Could not find any matches.', 'ERROR');
         return;
@@ -204,16 +209,17 @@ $$('#pwdchangeBtn').on('click', function() {
     }, 500);
 });
 
-function changePwd(username, userpwd, useremail) {
+function changePwd(username, userphone, userpwd, useremail) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
-            if(this.responseText == "0") result = "0";
+            var tempchangepwd = parseInt(this.responseText);
+            if(tempchangepwd == 0) result = "0";
             else result = "1";
         }
     }
     xmlhttp.open("GET", "changePwd.php?username="
-        +username+"&userpwd="+userpwd+"&useremail="+useremail, false);
+        +username+"&userpwd="+userpwd+"&useremail="+useremail+"&userphone="+userphone, false);
     xmlhttp.send();
 }
 
@@ -277,7 +283,7 @@ function accountValidate(username, userpwd) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
-            if(this.responseText == "0") result = "0";
+            if(parseInt(this.responseText) == 0) result = "0";
             else result = "1";
         }
     }

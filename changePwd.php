@@ -1,37 +1,27 @@
+<?php include "dbinfo.php"; ?>
 <?php
 	$username = $_GET["username"];
 	$usernewpwd = $_GET["userpwd"];
 	$useremail = $_GET["useremail"];
-	$newline = array();
-	$findmatch = 0;
-	$oldphone = "";
-	if($file = fopen("userAccounts.txt", "r")) {
-		while(!feof($file)) {
-			$line = fgets($file);
-			if($line != "") {
-				$temp = explode(" ", $line);
-				$temp[3] = trim(preg_replace('/\s+/', '', $temp[3]));
-				if(strcmp($temp[0], $username) == 0 && strcmp($temp[3], $useremail) == 0) {
-					$oldphone = $temp[2];
-					$findmatch = 1;
-				} else {
-					$newline[] = $line;
-				}
+	$userphone = $_GET["userphone"];
+	$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, 'GJ_TEST_DB');
+	if(mysqli_connect_errno()) {
+		printf("Connect failed: %s\n", mysqli_connect_error());
+		exit();
+	}
+	$query = "SELECT * FROM `users` WHERE `fullname`='$username' AND `email`='$useremail' AND `phone`='$userphone'";
+	if($result = mysqli_query($link, $query)) {
+		if(mysqli_num_rows($result) <= 0) {
+			echo "2";
+		} else {
+			$pwd = md5($usernewpwd);
+			$query = "UPDATE `users` SET `hashed_passwd`='$pwd' WHERE `fullname`='$username' AND `email`='$useremail' AND `phone`='$userphone'";
+			if(!mysqli_query($link, $query)) {
+				echo "-1";
 			}
 		}
+	} else {
+		echo "-1";
 	}
-	if($findmatch == 0) {
-		echo "1";
-		return;
-	}
-	$fp = fopen("userAccounts.txt", "w+");
-	flock($fp, LOCK_EX);
-	foreach($newline as $entry) {
-		fwrite($fp, $entry);
-	}
-	$updateOne = PHP_EOL.$username.' '.$usernewpwd.' '.$oldphone.' '.$useremail;
-	fwrite($fp, $updateOne);
-	flock($fp, LOCK_UN);
-	fclose($fp);
 	echo "0";
 ?>
