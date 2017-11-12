@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-class PhpTest extends TestCase
+class phptest extends TestCase
 {
     /**
      * userValidate test
@@ -10,7 +10,7 @@ class PhpTest extends TestCase
      */
     public function test_userValidate()
     {
-        include '../userValidate.php';
+        include '../php/userValidate.php';
     }
 }
 ?>
