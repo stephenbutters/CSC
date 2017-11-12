@@ -82,7 +82,7 @@ function loadClasses() {
             }
         }
     }
-    xmlhttp.open("GET", "subject.php", false);
+    xmlhttp.open("GET", "control.php?action=getSubject", false);
     xmlhttp.send();
 }
 
@@ -221,8 +221,8 @@ function changePwd(username, userphone, userpwd, useremail) {
             else result = "1";
         }
     }
-    xmlhttp.open("GET", "changePwd.php?username="
-        +username+"&userpwd="+userpwd+"&useremail="+useremail+"&userphone="+userphone, false);
+    xmlhttp.open("GET", "control.php?action=changePwd&username="
+        +username+"&pwd="+userpwd+"&email="+useremail+"&phone="+userphone, false);
     xmlhttp.send();
 }
 
@@ -239,7 +239,7 @@ function register(userName, userPwd, userPhone, userEmail) {
             else result = "1";
         }
     }
-    xmlhttp.open("GET", "registerusers.php?username="
+    xmlhttp.open("GET", "control.php?action=registerUser&username="
         +userName+"&pwd="+userPwd+"&phone="+userPhone+"&email="+userEmail, false);
     xmlhttp.send();
 }
@@ -294,7 +294,7 @@ function accountValidate(username, userpwd) {
             else result = "1";
         }
     }
-    xmlhttp.open("GET", "userValidate.php?username="+username+"&userpwd="+userpwd, false);
+    xmlhttp.open("GET", "control.php?action=userValidate&username="+username+"&pwd="+userpwd, false);
     xmlhttp.send();
 }
 
@@ -320,7 +320,7 @@ $$('#sectionAddBtn').on('click', function() {
             }
         }
     }
-    xmlhttp.open("GET", "classSectionSubmit.php?userName="+uname+"&className="+curClassName+"&secfrom="+curFrom+"&secto="+curTo, true);
+    xmlhttp.open("GET", "control.php?action=classSectionSubmit&username="+uname+"&class="+curClassName+"&secfrom="+curFrom+"&secto="+curTo, true);
     xmlhttp.send();
 });
 
@@ -349,7 +349,7 @@ function popupClassInfo (classname, secFrom, secTo, time, status) {
                     }
                 }
             }
-            xmlhttp.open("GET", "removeClassSection.php?userName="+uname+"&className="+classname+"&secFrom="+secFrom+"&secTo="+secTo, true);
+            xmlhttp.open("GET", "control.php?action=removeClassSection&username="+uname+"&class="+classname+"&secfrom="+secFrom+"&secto="+secTo, true);
             xmlhttp.send();
         }
       },
@@ -478,7 +478,7 @@ setInterval(function() {
                 }
             }
         }
-        xmlhttp.open("GET", "updateClassSection.php?userName="+uname, true);
+        xmlhttp.open("GET", "control.php?action=updateClassSection&username="+uname, true);
         xmlhttp.send();
     }   
 }, 1000);
