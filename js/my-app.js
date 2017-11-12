@@ -158,7 +158,7 @@ $$('#registerBtn').on('click', function() {
     setTimeout(function () {
         myApp.hidePreloader();
         myApp.closeModal('.popupsignup');
-        myApp.alert('You can log in with your account now.', 'INFO'); 
+        myApp.alert('Before you log in, you have to go to your registered email and verify your account.', 'INFO'); 
         $$('.register-screen input[name = "username"]').val("");
         $$('.register-screen input[name = "password"]').val("");
         $$('.register-screen input[name = "phonenum"]').val("");
@@ -222,12 +222,16 @@ function register(userName, userPwd, userPhone, userEmail) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
-            if(this.responseText == "0") result = "0";
+            if(parseInt(this.responseText) >= 0) {
+                result = "0";
+                userid = parseInt(this.responseText);
+                console.log(userid);
+            }
             else result = "1";
         }
     }
-    xmlhttp.open("GET", "registerUser.php?username="
-        +userName+"&userpwd="+userPwd+"&userphone="+userPhone+"&useremail="+userEmail, false);
+    xmlhttp.open("GET", "registerusers.php?username="
+        +userName+"&pwd="+userPwd+"&phone="+userPhone+"&email="+userEmail, false);
     xmlhttp.send();
 }
 
@@ -386,7 +390,7 @@ function joingroupBtn(classname, section, teamname, recrutesize, desc) {
             '</div>',
     text: '<div class="tabs">'+
             '<div class="tab active" id="tab1">Class Name: '+ classname + '<br>Section: ' + section + '<br>Team Name: ' + teamname + '<br>Remaining: ' + recrutesize + '</div>'+
-            '<div class="tab" id="tab2">'+ desc +'</div>'+
+            '<div class="tab" id="tab2" style="overflow-wrap: break-word;">'+ desc +'</div>'+
           '</div>',
     verticalButtons: true,
     buttons: [

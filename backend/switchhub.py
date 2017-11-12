@@ -90,7 +90,6 @@ def mysql_connect():
         else:
             print(err)
     else:
-        print("connected!")
         return cnx
 
     
@@ -125,6 +124,5 @@ if __name__ == "__main__":
 # apis:
 # switchhub.py --action=showusercases --user=user
 # will return (lines of) section switching information using the correct file format (upwards)
-
 
 
