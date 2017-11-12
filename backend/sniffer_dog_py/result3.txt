@@ -18119,8 +18119,6 @@ M490. Educational Advocacy. (2)
     Psychology
 @PSYCH
 
-10. Introductory Psychology. (4)
-
 15. Introductory Psychobiology. (4)
 
 20A. MATLAB Programming for Behavioral Sciences. (4)
