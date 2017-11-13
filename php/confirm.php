@@ -1,4 +1,4 @@
-<?php include "dbinfo.php"; ?>
+<?php require_once("dbinfo.php"); ?>
 <?php
 	$email = $_GET["email"];
 	$username = $_GET["username"];

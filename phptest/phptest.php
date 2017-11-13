@@ -14,5 +14,14 @@ class phptest extends TestCase
         $this->assertEquals(1, userValidate('www', '123'));
         $this->assertEquals(0, userValidate('hongkan', '123456'));
     }
+
+    public function test_changePwd()
+    {
+        include '../php/changePwd.php';
+
+        //Test with a non-existing user
+        $this->assertEquals(2, changePwd('qwesfs', '123', 'dfajn@Gmail.com', '1234567893'));
+        $this->assertEquals(0, changePwd('hongkan', '123456', 'hongkanliu@gmail.com', '1234567890'));
+    }
 }
 ?>
