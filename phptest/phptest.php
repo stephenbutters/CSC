@@ -23,5 +23,17 @@ class phptest extends TestCase
         $this->assertEquals(2, changePwd('qwesfs', '123', 'dfajn@Gmail.com', '1234567893'));
         $this->assertEquals(0, changePwd('hongkan', '123456', 'hongkanliu@gmail.com', '1234567890'));
     }
+
+    public function test_removeClassSection()
+    {
+        include '../php/removeClassSection.php';
+        include '../php/classSectionSubmit.php'
+
+        //Test remove a class
+
+        classSectionSubmit();
+        $this->assertEquals(0, removeClassSection());
+
+    }
 }
 ?>
