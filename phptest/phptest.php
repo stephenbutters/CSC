@@ -17,5 +17,14 @@ class phptest extends TestCase
         //Test with a existing non-active user
         $this->assertEquals(2, userValidate('nonactive', '1234567890'));
     }
+
+    public function test_changePwd()
+    {
+        include '../php/changePwd.php';
+
+        //Test with a non-existing user
+        $this->assertEquals(2, changePwd('qwesfs', '123', 'dfajn@Gmail.com', '1234567893'));
+        $this->assertEquals(0, changePwd('hongkan', '123456', 'hongkanliu@gmail.com', '1234567890'));
+    }
 }
 ?>

@@ -1,4 +1,4 @@
-<?php include "dbinfo.php"; ?>
+<?php require_once("dbinfo.php"); ?>
 <?php
 	function userValidate($username, $pwd) {
 		$pwd = md5($pwd);

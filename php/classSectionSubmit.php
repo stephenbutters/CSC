@@ -1,4 +1,4 @@
-<?php include "dbinfo.php"; ?>
+<?php require_once("dbinfo.php"); ?>
 <?php
 /*
 	THIS IS WHAT I CALL WHEN I CLICK THE SUBMIT BTN IN CHANGE SECTION PAGE

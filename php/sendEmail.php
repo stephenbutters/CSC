@@ -1,4 +1,4 @@
-<?php include "secretInfo.php"; ?>
+<?php require_once("secretInfo.php"); ?>
 <?php
 	header("content-type: text/html; charset-utf-8");
 	require 'PHPMailer/class.phpmailer.php';

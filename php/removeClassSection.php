@@ -1,4 +1,4 @@
-<?php include "dbinfo.php"; ?>
+<?php require_once("dbinfo.php"); ?>
 <?php
 	function removeClassSection($userName, $className, $secFrom, $secTo) {
 		$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);

@@ -142,6 +142,7 @@ $$('#registerBtn').on('click', function() {
     }
     if(!tempUserEmail.endsWith("ucla.edu") && !tempUserEmail.endsWith("g.ucla.edu")) {
         myApp.alert('You have to register with your ucla email address.', 'Email');
+        return;
     }
     if(tempUserPwd != temprepeatPwd) {
         myApp.alert('Your passwords do not match.', 'Password');
