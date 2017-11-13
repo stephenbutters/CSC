@@ -153,22 +153,23 @@ $$('#registerBtn').on('click', function() {
         return;
     }
     register(tempUserName, tempUserPwd, tempUserPhone, tempUserEmail);
-    if(result != "0") {
-        myApp.alert('Duplicated user name.', 'ERROR');
-        return;
-    }
-    result = "";
     myApp.showPreloader('Registering');
     setTimeout(function () {
         myApp.hidePreloader();
         myApp.closeModal('.popupsignup');
+        console.log(result);
+        if(result != "0") {
+            myApp.alert('Duplicated user name.', 'ERROR');
+            return;
+        }
+        result = "";
         myApp.alert('Before you log in, you have to go to your registered email and verify your account.', 'INFO'); 
         $$('.register-screen input[name = "username"]').val("");
         $$('.register-screen input[name = "password"]').val("");
         $$('.register-screen input[name = "phonenum"]').val("");
         $$('.register-screen input[name = "email"]').val("");
         $$('.register-screen input[name = "repeatedpassword"]').val("");    
-    }, 500);
+    }, 4000);
 });
 
 /*
@@ -241,7 +242,7 @@ function register(userName, userPwd, userPhone, userEmail) {
         }
     }
     xmlhttp.open("GET", "control.php?action=registerUser&username="
-        +userName+"&pwd="+userPwd+"&phone="+userPhone+"&email="+userEmail, false);
+        +userName+"&pwd="+userPwd+"&phone="+userPhone+"&email="+userEmail, true);
     xmlhttp.send();
 }
 
@@ -464,7 +465,7 @@ setInterval(function() {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if(this.readyState == 4 && this.status == 200) {
-                //console.log(this.responseText[0][3]);
+                console.log(this.responseText);
                 var obj = JSON.parse(this.responseText);
                 var tempID = document.getElementById("classSectionChangeDiv");
                 tempID.innerHTML = "";
@@ -479,7 +480,7 @@ setInterval(function() {
                 }
             }
         }
-        xmlhttp.open("GET", "control.php?action=updateClassSection&username="+uname, true);
+        xmlhttp.open("GET", "control.php?action=updateClassSection&username="+uname, false);
         xmlhttp.send();
     }   
 }, 1000);

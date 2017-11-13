@@ -1,13 +1,11 @@
 <?php
-	include "php/userValidate.php";
-	include "php/changePwd.php";
-	include "php/registerusers.php";
-	include "php/classSectionSubmit.php";
-	include "php/removeClassSection.php";
-	include "php/subject.php";
-	include "php/updateClassSection.php";
-?>
-<?php
+require "php/userValidate.php";
+require "php/changePwd.php";
+require "php/classSectionSubmit.php";
+require "php/removeClassSection.php";
+require "php/subject.php";
+require "php/updateClassSection.php";
+require "php/registerusers.php";
 $username = $_GET['username'];
 $pwd = $_GET['pwd'];
 $newpwd = $_GET['newpwd'];
@@ -41,5 +39,5 @@ switch($action) {
 		echo updateClassSection($username);
 		break;
 }
-
+echo "-1";
 ?>

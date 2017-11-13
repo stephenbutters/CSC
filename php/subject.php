@@ -9,6 +9,6 @@
 				}
 			}
 		}
-		return $allSubjects;
+		echo $allSubjects;
 	}
 ?>

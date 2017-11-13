@@ -19,6 +19,8 @@
 					return "0";
 				}
 			}
+	 	} else {
+	 		return "3";
 	 	}
 	 	mysqli_close($link);
  	}
