@@ -6,7 +6,7 @@ You may want to have phpunit installed first. The documentation for phpunit can 
 [https://phpunit.de/](https://phpunit.de/)
 
 #### Execution
-To run the tests, simply type the command under PhpTest directory
+To run the tests, simply type the command under phptest directory
 ```php
-phpunit PhpTest
+phpunit phptest
 ```

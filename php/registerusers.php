@@ -1,4 +1,4 @@
-<?php include "dbinfo.php"; ?>
+<?php require_once("dbinfo.php"); ?>
 <?php
 	include "sendEmail.php";
 	include "functions.php";
