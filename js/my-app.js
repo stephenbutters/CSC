@@ -82,7 +82,7 @@ function loadClasses() {
             }
         }
     }
-    xmlhttp.open("GET", "control.php?action=getSubject", false);
+    xmlhttp.open("GET", "php/subject.php", false);
     xmlhttp.send();
 }
 

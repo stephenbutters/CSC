@@ -35,10 +35,10 @@
 		// }
 		$title = "Verify Your Email";
 		$info = "http://ec2-13-57-38-240.us-west-1.compute.amazonaws.com/php/confirm.php?email=".$to."&username=".$username;
-		$content = format_emailContent($username, $info, true);
+		$content = format_emailContent($username, $info, 1, "bogus", "bogus", "bogus", "bogus");
 
 		send_mail($to, $username, $title, $content);
-		return $returnvalue;
+		return "0";
 		mysqli_close($link);
 	}
 ?>

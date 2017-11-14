@@ -11,11 +11,11 @@
 		$mail->SMTPDebug = 2;
 		$mail->SMTPAuth = true;
 		$mail->Host = 'smtp-mail.outlook.com';
-		$mail->Username = "bruinswitch@hotmail.com";
-		$mail->Password = "Aa6418463.";
+		$mail->Username = "hongkanliu@hotmail.com";
+		$mail->Password = "091013kanye.";
 		$mail->SMTPSecure = 'tls';
 		$mail->Port = 587;
-		$mail->SetFrom("bruinswitch@hotmail.com", "Bruin Switch");
+		$mail->SetFrom("hongkanliu@hotmail.com", "Bruin Switch");
 		$mail->AddAddress($to, $username);
 		$mail->IsHTML(true);
 		$mail->Subject = $title;

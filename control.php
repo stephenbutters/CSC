@@ -1,11 +1,10 @@
 <?php
+require "php/registerusers.php";
 require "php/userValidate.php";
 require "php/changePwd.php";
 require "php/classSectionSubmit.php";
 require "php/removeClassSection.php";
-require "php/subject.php";
 require "php/updateClassSection.php";
-require "php/registerusers.php";
 $username = $_GET['username'];
 $pwd = $_GET['pwd'];
 $newpwd = $_GET['newpwd'];
@@ -15,7 +14,6 @@ $secfrom = $_GET['secfrom'];
 $secto = $_GET['secto'];
 $action = $_GET['action'];
 $classname = $_GET['class'];
-
 switch($action) {
 	case "userValidate":
 		echo userValidate($username, $pwd);
@@ -32,12 +30,8 @@ switch($action) {
 	case "removeClassSection":
 		echo removeClassSection($username, $classname, $secfrom, $secto);
 		break;
-	case "getSubject":
-		echo getSubject();
-		break;
 	case "updateClassSection":
 		echo updateClassSection($username);
 		break;
 }
-echo "-1";
 ?>
