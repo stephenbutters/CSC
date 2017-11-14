@@ -10,12 +10,12 @@
 		$mail->CharSet='UTF-8';
 		$mail->SMTPDebug = 2;
 		$mail->SMTPAuth = true;
-		$mail->Host = 'smtp.qq.com';
-		$mail->Username = "78570685@qq.com";
-		$mail->Password = PWD;
-		$mail->SMTPSecure = 'ssl';
-		$mail->Port = 465;
-		$mail->SetFrom("78570685@qq.com", "Bruin Switch");
+		$mail->Host = 'smtp-mail.outlook.com';
+		$mail->Username = "bruinswitch@hotmail.com";
+		$mail->Password = "Aa6418463.";
+		$mail->SMTPSecure = 'tls';
+		$mail->Port = 587;
+		$mail->SetFrom("bruinswitch@hotmail.com", "Bruin Switch");
 		$mail->AddAddress($to, $username);
 		$mail->IsHTML(true);
 		$mail->Subject = $title;
