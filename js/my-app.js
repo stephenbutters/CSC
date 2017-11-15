@@ -326,6 +326,32 @@ $$('#sectionAddBtn').on('click', function() {
     xmlhttp.send();
 });
 
+$$('#raiseteambtn').on('click', function() {
+    var curClassName = document.getElementById("raiseTeamPageID").innerHTML;
+    var teamName = document.getElementById("teamnames").value;
+    var tempSection = document.getElementById("groupsectionTo");
+    var section = tempSection.options[tempSection.selectedIndex].value;
+    var recruteremain = document.getElementById("recruteremain").value;
+    if(parseInt(recruteremain) <= 0) {
+        myApp.alert("The recrute size can't be less or equal to 0.", "ERROR");
+        return;
+    }
+    var descs = document.getElementById("teamDescription").value;
+    console.log(curClassName, teamName, section, recruteremain, descs);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            if(parseInt(this.responseText) == 2) {
+                myApp.alert('You already have a team or join a team in this class section.', 'ERROR');
+            } else if(parseInt(this.responseText) != 0) {
+                myApp.alert('Something went wrong with response code '+this.responseText, 'ERROR');
+            }
+        }
+    }
+    xmlhttp.open("GET", "control.php?action=raiseTeam&leader="+uname+"&teamname="+teamName+"&class="+curClassName+"&secfrom="+section+"&remain="+recruteremain+"&desc="+descs, true);
+    xmlhttp.send();
+});
+
 $$('#backToIndexBtn').on('click', function() {
     mainView.router.load({pageName: 'index'});
 });
@@ -397,14 +423,14 @@ function threeBtn(classname) {
   })
 }
 
-function joingroupBtn(classname, section, teamname, recrutesize, desc) {
+function joingroupBtn(classname, section, teamname, recrutesize, desc, date) {
     myApp.modal({
     title:  '<div class="buttons-row">'+
               '<a href="#tab1" class="button active tab-link">Team</a>'+
               '<a href="#tab2" class="button tab-link">Desc</a>'+
             '</div>',
     text: '<div class="tabs">'+
-            '<div class="tab active" id="tab1">Class Name: '+ classname + '<br>Section: ' + section + '<br>Team Name: ' + teamname + '<br>Remaining: ' + recrutesize + '</div>'+
+            '<div class="tab active" id="tab1">Class Name: '+ classname + '<br>Section: ' + section + '<br>Team Name: ' + teamname + '<br>Remaining: ' + recrutesize + '<br>Date: ' + date + '</div>'+
             '<div class="tab" id="tab2" style="overflow-wrap: break-word;">'+ desc +'</div>'+
           '</div>',
     verticalButtons: true,
@@ -422,26 +448,45 @@ function joingroupBtn(classname, section, teamname, recrutesize, desc) {
   })
 }
 
-var teaminfos = [
-    {
-        'classname': 'cs 130',
-        'section': '1A',
-        'teamname': 'Team 404',
-        'recrutesize': '3',
-        'description': 'testingtestingtestingtestingtestingtestingtestingtestingtesting'
-    },
-    {
-        'classname': 'cs 111',
-        'section': '1A',
-        'teamname': 'Moon',
-        'recrutesize': '2',
-        'description': 'testingtestingtestingtestingtestingtestingtestingtestingtesting'
-    }
-];
+function removegroupBtn(classname, section, teamname, recrutesize, desc, date) {
+    myApp.modal({
+    title:  '<div class="buttons-row">'+
+              '<a href="#tab1" class="button active tab-link">Team</a>'+
+              '<a href="#tab2" class="button tab-link">Desc</a>'+
+            '</div>',
+    text: '<div class="tabs">'+
+            '<div class="tab active" id="tab1">Class Name: '+ classname + '<br>Section: ' + section + '<br>Team Name: ' + teamname + '<br>Remaining: ' + recrutesize + '<br>Date: ' + date + '</div>'+
+            '<div class="tab" id="tab2" style="overflow-wrap: break-word;">'+ desc +'</div>'+
+          '</div>',
+    verticalButtons: true,
+    buttons: [
+      {
+        text: 'Remove',
+        onClick: function() {
+          myApp.alert('hello', 'ahha');
+        }
+      },
+      {
+        text: 'Cancel'
+      },
+    ]
+  })
+}
+
+var teaminfos = [];
 
 function getTeamInfo(className) {
-    //teaminfos = undefined;
-    //call server side file and get the json array then call loadteaminfo()
+    var xmlhttp = new XMLHttpRequest();
+    teaminfos = [];
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            teaminfos = JSON.parse(this.responseText);
+            console.log(teaminfos);
+            loadteaminfo();
+        }
+    }
+    xmlhttp.open("GET", "control.php?action=updateGroup&class="+className, false);
+    xmlhttp.send();
     loadteaminfo();
 }
 
@@ -452,14 +497,15 @@ function loadteaminfo() {
         var lidom = document.createElement("li");
         lidom.className = "button button-fill button-blue";
         lidom.style.cssText = 'width: 80%; left: 10%; border-radius: 10px; margin: 10px 0 10px 0; height: 50px;';
-        lidom.setAttribute('onclick', "joingroupBtn('"+teaminfos[i].classname+"', '"+teaminfos[i].section+"', '"+teaminfos[i].teamname+"', '"+teaminfos[i].recrutesize+"', '"+teaminfos[i].description+"')");
-        var dDom = '<a href="#" style="color: white;">'+teaminfos[i].teamname+'</a>';
+        lidom.setAttribute('onclick', "joingroupBtn('"+teaminfos[i][0]+"', '"+teaminfos[i][1]+"', '"+teaminfos[i][2]+"', '"+teaminfos[i][3]+"', '"+teaminfos[i][4]+"', '"+teaminfos[i][5]+"')");
+        var dDom = '<a href="#" style="color: white;">'+teaminfos[i][2]+'</a>';
         lidom.innerHTML = dDom;
         loadinfo.append(lidom);
     }
     mainView.router.load({pageName: 'jointeampage'});
 }
 
+//CLASS SECTION INFO MAIN PAGE
 setInterval(function() {
     if(firstLogin == 0) {
         var xmlhttp = new XMLHttpRequest();
@@ -483,7 +529,33 @@ setInterval(function() {
         xmlhttp.open("GET", "control.php?action=updateClassSection&username="+uname, false);
         xmlhttp.send();
     }   
-}, 1000);
+}, 1500);
+
+// GROUP INFO MAIN PAGE
+setInterval(function() {
+    if(firstLogin == 0) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+                var obj2 = JSON.parse(this.responseText);
+                var tempID = document.getElementById("groupSectionDiv");
+                tempID.innerHTML = "";
+                for(var i = 0; i < obj2.length; i++) {
+                    var lidom = document.createElement("li");
+                    lidom.className = "button button-fill button-blue";
+                    lidom.style.cssText = 'width: 80%; left: 10%; border-radius: 10px; margin: 10px 0 10px 0; height: 50px;';
+                    lidom.setAttribute('onclick', "removegroupBtn('"+obj2[i][1]+"', '"+obj2[i][2]+"', '"+obj2[i][3]+"', '"+obj2[i][4]+"', '"+obj2[i][5]+"', '"+obj2[i][6]+"')");
+                    var dDom = '<a href="#" style="color: white;"><span>'+obj2[i][1]+'</span><span>'+obj2[i][3]+'</span>'+'</a>';
+                    lidom.innerHTML = dDom;
+                    tempID.append(lidom);
+                }
+            }
+        }
+        xmlhttp.open("GET", "control.php?action=updateGroupMain&username="+uname, false);
+        xmlhttp.send();
+    }   
+}, 1500);
 
 // Generate dynamic page
 var dynamicPageIndex = 0;

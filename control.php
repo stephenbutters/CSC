@@ -5,6 +5,9 @@ require "php/changePwd.php";
 require "php/classSectionSubmit.php";
 require "php/removeClassSection.php";
 require "php/updateClassSection.php";
+require "php/raiseTeam.php";
+require "php/updateGroup.php";
+require "php/updateGroupMain.php";
 $username = $_GET['username'];
 $pwd = $_GET['pwd'];
 $newpwd = $_GET['newpwd'];
@@ -14,6 +17,10 @@ $secfrom = $_GET['secfrom'];
 $secto = $_GET['secto'];
 $action = $_GET['action'];
 $classname = $_GET['class'];
+$leader = $_GET['leader'];
+$remain = $_GET['remain'];
+$descs = $_GET['desc'];
+$teamname = $_GET['teamname'];
 switch($action) {
 	case "userValidate":
 		echo userValidate($username, $pwd);
@@ -32,6 +39,15 @@ switch($action) {
 		break;
 	case "updateClassSection":
 		echo updateClassSection($username);
+		break;
+	case "raiseTeam":
+		echo raiseTeam($leader, $teamname, $classname, $secfrom, $remain, $descs);
+		break;
+	case "updateGroup":
+		echo updateGroup($classname);
+		break;
+	case "updateGroupMain":
+		echo updateGroupMain($username);
 		break;
 }
 ?>
