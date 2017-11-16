@@ -157,7 +157,6 @@ $$('#registerBtn').on('click', function() {
     setTimeout(function () {
         myApp.hidePreloader();
         myApp.closeModal('.popupsignup');
-        console.log(result);
         if(result != "0") {
             myApp.alert('Duplicated user name.', 'ERROR');
             return;
@@ -236,7 +235,6 @@ function register(userName, userPwd, userPhone, userEmail) {
             if(parseInt(this.responseText) >= 0) {
                 result = "0";
                 userid = parseInt(this.responseText);
-                console.log(userid);
             }
             else result = "1";
         }
@@ -337,7 +335,6 @@ $$('#raiseteambtn').on('click', function() {
         return;
     }
     var descs = document.getElementById("teamDescription").value;
-    console.log(curClassName, teamName, section, recruteremain, descs);
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
@@ -463,7 +460,17 @@ function removegroupBtn(classname, section, teamname, recrutesize, desc, date) {
       {
         text: 'Remove',
         onClick: function() {
-          myApp.alert('hello', 'ahha');
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if(this.readyState == 4 && this.status == 200) {
+                    console.log("control.php?action=removeGroupSection&class="+classname+"&username="+uname+"&teamname="+teamname+"&secfrom="+section);
+                    if(parseInt(this.responseText) != "0") {
+                        myApp.alert("ERROR CODE -1, DB ERROR!", "ERROR");
+                    }
+                }
+            }
+            xmlhttp.open("GET", "control.php?action=removeGroupSection&class="+classname+"&username="+uname+"&teamname="+teamname+"&secfrom="+section, true);
+            xmlhttp.send();
         }
       },
       {
@@ -481,11 +488,10 @@ function getTeamInfo(className) {
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
             teaminfos = JSON.parse(this.responseText);
-            console.log(teaminfos);
             loadteaminfo();
         }
     }
-    xmlhttp.open("GET", "control.php?action=updateGroup&class="+className, false);
+    xmlhttp.open("GET", "control.php?action=updateGroup&class="+className+"&username="+uname, false);
     xmlhttp.send();
     loadteaminfo();
 }
@@ -511,7 +517,6 @@ setInterval(function() {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if(this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
                 var obj = JSON.parse(this.responseText);
                 var tempID = document.getElementById("classSectionChangeDiv");
                 tempID.innerHTML = "";
@@ -537,7 +542,6 @@ setInterval(function() {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if(this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
                 var obj2 = JSON.parse(this.responseText);
                 var tempID = document.getElementById("groupSectionDiv");
                 tempID.innerHTML = "";
@@ -619,7 +623,6 @@ function addClass2(i) {
 }
 
 function addSubjects() {
-    console.log(subjectClasses);
     var subjectul = $$('#subjectUL');
     var subjectulg = $$('#subjectULGroup');
     for(var i = 0; i < subjects.length; i++) {

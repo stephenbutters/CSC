@@ -8,6 +8,7 @@ require "php/updateClassSection.php";
 require "php/raiseTeam.php";
 require "php/updateGroup.php";
 require "php/updateGroupMain.php";
+require "php/removeGroupSection.php";
 $username = $_GET['username'];
 $pwd = $_GET['pwd'];
 $newpwd = $_GET['newpwd'];
@@ -44,10 +45,13 @@ switch($action) {
 		echo raiseTeam($leader, $teamname, $classname, $secfrom, $remain, $descs);
 		break;
 	case "updateGroup":
-		echo updateGroup($classname);
+		echo updateGroup($classname, $username);
 		break;
 	case "updateGroupMain":
 		echo updateGroupMain($username);
+		break;
+	case "removeGroupSection":
+		echo removeGroupSection($username, $teamname, $classname, $secfrom);
 		break;
 }
 ?>
