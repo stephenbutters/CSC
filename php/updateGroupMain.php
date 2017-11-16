@@ -17,5 +17,4 @@
     	return json_encode($array);
 		mysqli_close($link);
 	}
-
 ?>

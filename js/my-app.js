@@ -435,7 +435,18 @@ function joingroupBtn(classname, section, teamname, recrutesize, desc, date) {
       {
         text: 'Join',
         onClick: function() {
-          myApp.alert('hello', 'ahha');
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if(this.readyState == 4 && this.status == 200) {
+                }
+            }
+            xmlhttp.open("GET", "control.php?action=joinTeams&class="+classname+"&username="+uname+"&teamname="+teamname+"&secfrom="+section, true);
+            xmlhttp.send();
+            myApp.showPreloader('Processing');
+            setTimeout(function () {
+                myApp.hidePreloader();
+                getTeamInfo(classname);   
+            }, 1500);
         }
       },
       {

@@ -32,9 +32,8 @@
 			$query = "UPDATE `groupTeams` SET `remain`=$remaining WHERE `teamname`='$groupname' AND `class`='$class' AND `section`='$section'";
 			if(!mysqli_query($link, $query)) {
 				return "-1"; //DB ERROR
-			}
-		}
-		return "0";
+			} else return "0";
+		} else return "-1";
 		mysqli_close($link);
 	}
 ?>

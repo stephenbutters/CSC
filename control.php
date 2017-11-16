@@ -9,6 +9,7 @@ require "php/raiseTeam.php";
 require "php/updateGroup.php";
 require "php/updateGroupMain.php";
 require "php/removeGroupSection.php";
+require "php/joinTeams.php";
 $username = $_GET['username'];
 $pwd = $_GET['pwd'];
 $newpwd = $_GET['newpwd'];
@@ -52,6 +53,9 @@ switch($action) {
 		break;
 	case "removeGroupSection":
 		echo removeGroupSection($username, $teamname, $classname, $secfrom);
+		break;
+	case "joinTeams":
+		echo joinTeams($username, $teamname, $classname, $secfrom);
 		break;
 }
 ?>
