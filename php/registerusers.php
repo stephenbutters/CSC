@@ -2,7 +2,7 @@
 <?php
 	include "sendEmail.php";
 	include "functions.php";
-	function registerUser($to, $username, $pwd, $phone) {
+	function registerUser ($to, $username, $pwd, $phone) {
 		$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, 'GJ_TEST_DB');
 		if(mysqli_connect_errno()) {
 			printf("Connect failed: %s\n", mysqli_connect_error());
@@ -23,17 +23,22 @@
 		if(!mysqli_query($link, $query)) {
 			return "-1";
 		}
-		mysqli_close($link);
-		$returnvalue = shell_exec("python switchhub.py --user=$username --email=$to --password=$pwd --cellphone=$phone --action=createuser");
-		if(intval($returnvalue) < 0) {
+		$pwd = md5($pwd);
+		$query = "INSERT `users` VALUES('$username', '$to', '$phone', '$pwd', 0)";
+		if(!mysqli_query($link, $query)) {
 			return "-1";
 		}
+		mysqli_close($link);
+		// $returnvalue = shell_exec("python switchhub.py --user=$username --email=$to --password=$pwd --cellphone=$phone --action=createuser");
+		// if(intval($returnvalue) < 0) {
+		// 	return "-1";
+		// }
 		$title = "Verify Your Email";
-		$info = "http://ec2-13-57-38-240.us-west-1.compute.amazonaws.com/confirm.php?email=".$to."&username=".$username;
-		$content = format_emailContent($username, $info, true);
+		$info = "http://ec2-13-57-38-240.us-west-1.compute.amazonaws.com/php/confirm.php?email=".$to."&username=".$username;
+		$content = format_emailContent($username, $info, 1, "bogus", "bogus", "bogus", "bogus");
 
 		send_mail($to, $username, $title, $content);
-		return $returnvalue;
+		return "0";
 		mysqli_close($link);
 	}
 ?>

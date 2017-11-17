@@ -12,7 +12,10 @@ class phptest extends TestCase
 
         //Test with a non-existing user
         $this->assertEquals(1, userValidate('www', '123'));
+        //Test with a existing active user
         $this->assertEquals(0, userValidate('hongkan', '123456'));
+        //Test with a existing non-active user
+        $this->assertEquals(2, userValidate('nonactive', '1234567890'));
     }
 
     public function test_changePwd()
@@ -24,26 +27,16 @@ class phptest extends TestCase
         $this->assertEquals(0, changePwd('hongkan', '123456', 'hongkanliu@gmail.com', '1234567890'));
     }
 
-    public function test_classSectionExchange()
+    public function test_removeClassSection()
     {
-        include '../php/classSectionSubmit.php';
         include '../php/removeClassSection.php';
+        include '../php/classSectionSubmit.php'
 
-        // add a class section exchange
-        $this->assertEquals(0, classSectionSubmit('hongkan', 'ART - 1A', '1C', '1A');       
-        //Test add a duplicate class
-        $this->assertEquals(1, classSectionSubmit('hongkan', 'ART - 1A', '1C', '1A');
-        // test with A REVERSE SECTION
-        $this->assertEquals(1, classSectionSubmit('hongkan', 'ART - 1A', '1A', '1C');
+        //Test remove a class
 
-        // remove a class section exchange
-        $this->assertEquals(0, removeClassSection('hongkan', 'ART - 1A', '1C', '1A'));
+        classSectionSubmit();
+        $this->assertEquals(0, removeClassSection());
 
-        //Test with a non-existing user
-
-        // TEST ALREADY HAVE A REVERSE SECTION CHANGE ENTRY, RETURN '2'
-        $this->assertEquals(2, classSectionSubmit('hongkan', '$className, "1A", "1C"));
-        $this->assertEquals(0, classSectionSubmit('hongkan', '123456', 'hongkanliu@gmail.com', '1234567890'));
     }
 }
 ?>
