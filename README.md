@@ -28,3 +28,5 @@ This section provides users who are in the same discussion to form project group
 This section requires users to enter their current parking lot number, and parking lot number which they want to exchange to. After users submit above information, they will return to their profile page. The users can review or modify their requests.
 
 #### More Exciting Features are coming!
+
+### FOR MORE UI INFO: https://github.com/HKanLiu/CSC/blob/master/php/README.md
