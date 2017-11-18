@@ -24,92 +24,21 @@
       <div class="view view-main">
         <div class="navbar" id="navbars">
           <div data-page="index" class="navbar-inner">
+            <div class="left">
+              <a href="#" class="back link">
+                <i class="icon icon-back"></i>
+                <span>Back</span>
+              </a>
+            </div>
             <div class="right">
               <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
             </div>
           </div>
-          <div data-page="classPage" id="classPage" class="navbar-inner cached">
-            <div class="left">
-              <a href="#" class="back link">
-                <i class="icon icon-back"></i>
-                <span>Back</span>
-              </a>
-            </div>
-            <div class="right" style="margin-right: 20px;">
-              <a href="#" class="link icon-only open-panel"></a>
-            </div>
-          </div>
-          <div data-page="classPageGroup" id="classPage" class="navbar-inner cached">
-            <div class="left">
-              <a href="#" class="back link">
-                <i class="icon icon-back"></i>
-                <span>Back</span>
-              </a>
-            </div>
-            <div class="right" style="margin-right: 20px;">
-              <a href="#" class="link icon-only open-panel"></a>
-            </div>
-          </div>
-          <div data-page="classDivPage" id="classPage" class="navbar-inner cached">
-            <div class="left">
-              <a href="#" class="back link">
-                <i class="icon icon-back"></i>
-                <span>Back</span>
-              </a>
-            </div>
-            <div class="right" style="margin-right: 20px;">
-              <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-            </div>
-          </div> 
-          <div data-page="classDivPageGroup" id="classPage" class="navbar-inner cached">
-            <div class="left">
-              <a href="#" class="back link">
-                <i class="icon icon-back"></i>
-                <span>Back</span>
-              </a>
-            </div>
-            <div class="right" style="margin-right: 20px;">
-              <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-            </div>
-          </div>
-          <div data-page="addClassSectionPage" id="classPage" class="navbar-inner cached">
-            <div class="left">
-              <a href="#" class="back link">
-                <i class="icon icon-back"></i>
-                <span>Back</span>
-              </a>
-            </div>
-            <div class="right" style="margin-right: 20px;">
-              <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-            </div>
-          </div>
-          <div data-page="raiseTeamPage" id="classPage" class="navbar-inner cached">
-            <div class="left">
-              <a href="#" class="back link">
-                <i class="icon icon-back"></i>
-                <span>Back</span>
-              </a>
-            </div>
-            <div class="right" style="margin-right: 20px;">
-              <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-            </div>
-          </div> 
-          <div data-page="jointeampage" id="classPage" class="navbar-inner cached">
-            <div class="left">
-              <a href="#" class="back link">
-                <i class="icon icon-back"></i>
-                <span>Back</span>
-              </a>
-            </div>
-            <div class="right" style="margin-right: 20px;">
-              <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-            </div>
-          </div>
         </div>
         <div class="pages" id="allPages">
-          <div data-page="index" class="page">
+          <div data-page="index" class="page" style="overflow: auto;">
           <div class="list-block accordion-list">
-            <ul style="list-style: none; position: absolute; top: 10%; width: 90%; left: 5%; padding: 0;">
+            <ul style="list-style: none; position: absolute; top: 18%; width: 90%; left: 5%; padding: 0;">
               <li class="accordion-item" style="text-align: center; margin-bottom: 30px; background-color: #f0f5f5; border-radius: 10px;"><a href="#" class="item-content item-link">
                 <div class="item-inner">
                   <div class="item-title">Class Section Change</div>
@@ -130,9 +59,6 @@
                 </div></a>
                 <div class="accordion-item-content">
                   <div class="content-block">
-<<<<<<< HEAD
-                    <div class="button button-fill button-blue" style="margin-bottom: 10px; margin-top: 10px; border-radius: 10px; height: 35px; width: 40%; left: 30%;"><a href="#classPageGroup" style="color: white;">ADD SECTION</a></div>
-=======
                     <div class="list-block">
                       <ul id="groupSectionDiv">
                         <li>  
@@ -141,7 +67,6 @@
                       </ul>
                     </div>
                     <a href="#classPageGroup" class="button button-fill button-blue" style="margin-bottom: 10px; margin-top: 10px; border-radius: 10px; height: 30px; width: 40%; left: 30%;"><span style="color: white;">ADD SECTION</span></a>
->>>>>>> 74768fb967c34869b9304c26b13c1c959cede8fd
                   </div>
                 </div>
               </li>
@@ -158,7 +83,7 @@
             </ul>
             </div>
           </div>
-          <div data-page="classPage" class="page cached">
+          <div data-page="classPage" class="page cached" style="overflow: auto;">
             <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init" style="top: 65px; background-color: #4a5965; width: 90%; left: 5%; border-radius: 12px;">
               <div class="searchbar-input">
               <input type="search" style="border-radius: 12px;" placeholder="Search Subject"><a href="#" class="searchbar-clear"></a>
@@ -173,7 +98,7 @@
             </div>
           </div>
 
-          <div data-page="classPageGroup" class="page cached">
+          <div data-page="classPageGroup" class="page cached" style="overflow: auto;">
             <form data-search-list=".list-block-search-group" data-search-in=".item-title" class="searchbar searchbar-init" style="top: 65px; background-color: #4a5965; width: 90%; left: 5%; border-radius: 12px;">
               <div class="searchbar-input">
               <input type="search" style="border-radius: 12px;" placeholder="Search Subject"><a href="#" class="searchbar-clear"></a>
@@ -188,7 +113,7 @@
             </div>
           </div>
 
-          <div data-page="classDivPage" class="page cached">
+          <div data-page="classDivPage" class="page cached" style="overflow: auto;">
             <form data-search-list=".list-block-search-div" data-search-in=".item-title" class="searchbar searchbar-init" style="top: 65px; background-color: #4a5965; width: 90%; left: 5%; border-radius: 12px;">
               <div class="searchbar-input">
               <input type="search" style="border-radius: 12px;" placeholder="Search Subject"><a href="#" class="searchbar-clear"></a>
@@ -203,7 +128,7 @@
             </div>
           </div>
 
-          <div data-page="classDivPageGroup" class="page cached">
+          <div data-page="classDivPageGroup" class="page cached" style="overflow: auto;">
             <form data-search-list=".list-block-search-div-group" data-search-in=".item-title" class="searchbar searchbar-init" style="top: 65px; background-color: #4a5965; width: 90%; left: 5%; border-radius: 12px;">
               <div class="searchbar-input">
               <input type="search" style="border-radius: 12px;" placeholder="Search Subject"><a href="#" class="searchbar-clear"></a>
@@ -269,7 +194,7 @@
             </div>
           </div>
 
-          <div data-page="raiseTeamPage" class="page cached">
+          <div data-page="raiseTeamPage" class="page cached" style="overflow: auto;">
             <div class="page-content" style="top: 10%;">
               <div class="content-block-title" style="text-align: center;" id="raiseTeamPageID"></div>
               <form>
@@ -315,7 +240,7 @@
                     </li>
                     <li class="item-content">
                       <div class="item-inner">
-                        <textarea name="teamDescription" id="teamDescription" style="border: 2px solid #00bfff; width: 95%; left: 2%;"></textarea>
+                        <textarea name="teamDescription" id="teamDescription" style="border: 2px solid #00bfff; width: 95%; left: 2%; overflow: auto;"></textarea>
                       </div>
                     </li>
                   </ul>
@@ -325,7 +250,7 @@
             </div>
           </div>
 
-          <div data-page="jointeampage" class="page cached">
+          <div data-page="jointeampage" class="page cached" style="overflow: auto;">
             <div class="page-content" style="top: 10%;">
               <div class="content-block-title" style="text-align: center;" id="jointeampageid"></div>
               <div class="list-block">
