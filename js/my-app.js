@@ -26,7 +26,7 @@ else {
 
 // Initialize your app
 var myApp = new Framework7({
-    aterial: isAndroid ? true : false,
+    material: isAndroid ? true : false,
     template7Pages: true
 });
 
