@@ -102,6 +102,10 @@ setInterval(function() {
                 var obj = JSON.parse(this.responseText);
                 //var tempID = document.getElementById
                 //tempID.innerHTML = "";
+                if(obj == null) {
+                    curUnRead = 0;
+                    return;
+                }
                 var count = 0;
                 for(var i = 0; i < obj.length; i++) {
                     if(parseInt(obj[i][1]) == 0) count++;
@@ -141,6 +145,7 @@ $$('#tishiyouxiang').on('click', function() {
             tempDiv += '<li class="mesglist"><span class="classinfos readed">Status updates for '+mesgs[i][0]+', check your email.</span><span class="textend">'+mesgs[i][2]+'</span></li>';
         }
     }
+    if(mesgs.length == 0) tempDiv += '<span class="nomessagediv">No Messages!</span>'
     var popoverHTML = '<div class="popover popover2">'+
                           '<div class="popover-inner">'+
                             '<div class="list-block">'+

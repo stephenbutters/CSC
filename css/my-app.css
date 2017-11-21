@@ -71,6 +71,13 @@
   color: black;
 }
 
+.nomessagediv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .textend {
   display: flex;
   align-items: flex-end;
