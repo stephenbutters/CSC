@@ -59,6 +59,10 @@
           $email = $row1[1];
         } else return "-1"; //DB ERROR
         $title = "Status Update";
+        $query1 = "INSERT `message` VALUES ('$userName', '$className', 0, curdate())";
+        mysqli_query($link, $query1);
+        $query1 = "INSERT `message` VALUES ('$matchUser', '$className', 0, curdate())";
+        mysqli_query($link, $query1);
         //SEND TO CURRENT USER
         $content = format_emailContent($userName, $info, 2, $className, $secfrom, $secto, $matchUserEmail);
         send_mail($email, $userName, $title, $content);

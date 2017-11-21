@@ -91,10 +91,93 @@ function loadClasses() {
     Return value: none
     Load back to index page
 */
+var mesgs = [];
+
+setInterval(function() {
+    if(firstLogin == 0) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                mesgs = [];
+                var obj = JSON.parse(this.responseText);
+                //var tempID = document.getElementById
+                //tempID.innerHTML = "";
+                var count = 0;
+                for(var i = 0; i < obj.length; i++) {
+                    if(parseInt(obj[i][1]) == 0) count++;
+                    mesgs.push(obj[i]);
+                }
+                curUnRead = count;
+                console.log(curUnRead);
+                if(curUnRead != 0 && curClose) {
+                    document.getElementById('tishixinxi').style.display = 'flex';
+                }
+            }
+        }
+        xmlhttp.open("GET", "control.php?action=getMesg&username="+uname, true);
+        xmlhttp.send();
+    }
+}, 500);
+
+var curUnRead = 0;
 
 $$('#sectionAddBtn').on('click', function() {
     //just for test
     mainView.router.load({pageName: 'index'});
+});
+
+var curClose = true;
+
+$$('#tishiyouxiang').on('click', function() {
+    curUnRead = 0;
+    document.getElementById('tishigeshu').style.display = 'none';
+    setAllMesgRead();
+    var clickedLink = this;
+    var tempDiv = "";
+    for(var i = mesgs.length - 1; i >= 0; i--) {
+        if(parseInt(mesgs[i][1]) == 0) {
+            tempDiv += '<li class="mesglist"><span class="classinfos">Status updates for '+mesgs[i][0]+', check your email.</span><span class="textend">'+mesgs[i][2]+'</span></li>';
+        } else {
+            tempDiv += '<li class="mesglist"><span class="classinfos readed">Status updates for '+mesgs[i][0]+', check your email.</span><span class="textend">'+mesgs[i][2]+'</span></li>';
+        }
+    }
+    var popoverHTML = '<div class="popover popover2">'+
+                          '<div class="popover-inner">'+
+                            '<div class="list-block">'+
+                              '<ul style="margin-top20px;">'+
+                                tempDiv +
+                              '</ul>'+
+                            '</div>'+
+                          '</div>'+
+                        '</div>'
+  myApp.popover(popoverHTML, clickedLink);
+});
+
+function setAllMesgRead() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            
+        }
+    }
+    xmlhttp.open("GET", "control.php?action=updateMesg&username="+uname, true);
+    xmlhttp.send();
+}
+
+$$('#tishibtn').on('click', function() {
+    if(curClose) {
+        if(curUnRead != 0) {
+            document.getElementById('tishigeshu').innerHTML = curUnRead;
+            document.getElementById('tishigeshu').style.display = 'flex';
+        }
+        document.getElementById('tishixinxi').style.display = 'none';
+    } else {
+        if(curUnRead != 0) {
+            document.getElementById('tishixinxi').style.display = 'flex';
+        }
+        document.getElementById('tishigeshu').style.display = 'none';
+    }
+    curClose = !curClose;
 });
 
 /*

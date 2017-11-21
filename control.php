@@ -10,6 +10,8 @@ require "php/updateGroup.php";
 require "php/updateGroupMain.php";
 require "php/removeGroupSection.php";
 require "php/joinTeams.php";
+require "php/updateMesg.php";
+require "php/getMesg.php";
 $username = $_GET['username'];
 $pwd = $_GET['pwd'];
 $newpwd = $_GET['newpwd'];
@@ -56,6 +58,12 @@ switch($action) {
 		break;
 	case "joinTeams":
 		echo joinTeams($username, $teamname, $classname, $secfrom);
+		break;
+	case "updateMesg":
+		updateMesg($username);
+		break;
+	case "getMesg":
+		echo getMesg($username);
 		break;
 }
 ?>

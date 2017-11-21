@@ -6326,13 +6326,14 @@ return t7;
                         }
                         modalAngleTop = (modalHeight / 2 - modalAngleSize + diff);
                         modalAngleTop = Math.max(Math.min(modalAngleTop, modalHeight - modalAngleSize * 2 - 13), 13);
-                        modalAngle.css({top: modalAngleTop + 'px'});
+                        modalAngle.css({top: 30%});
                     }
                 }
         
         
                 // Apply Styles
-                modal.css({top: modalTop + 'px', left: modalLeft + 'px'});
+                // modal.css({top: modalTop + 'px', left: modalLeft + 'px'});
+                modal.css({top: 30%, left: modalLeft + 'px'});
             }
         
             sizePopover();

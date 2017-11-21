@@ -49,6 +49,8 @@
 						while($row = mysqli_fetch_row($result)) {
 							//GET THE EMAILS
 							$curuser = $row[0];
+							$query1 = "INSERT `message` VALUES ('$curuser', '$class', 0, curdate())";
+        					mysqli_query($link, $query1);
 							$query = "SELECT `email` FROM `users` WHERE `fullname`='$curuser' LIMIT 1";
 							if($result2 = mysqli_query($link, $query)) {
 								$row2 = mysqli_fetch_row($result2);
@@ -67,6 +69,10 @@
 						//SEND THE JOINED TEAM MEMBER INFO TO LEADER
 						$content = format_emailContent($leader, $teamname, 4, $class, $section, "bogus", $emails);
 						send_mail($leaderEmail, $leader, $title, $content);
+						$query1 = "INSERT `message` VALUES ('$username', '$class', 0, curdate())";
+		        		mysqli_query($link, $query1);
+		        		$query1 = "INSERT `message` VALUES ('$leader', '$class', 0, curdate())";
+		        		mysqli_query($link, $query1);
 					} else return "-1"; //
 				}
 				//IF NOW THE TEAM NEEDS MORE THAN ONE PERSON, JUST ADD IT TO THE DB AND UPDATE THE DB INFO

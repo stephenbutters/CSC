@@ -3678,7 +3678,7 @@ label.label-radio.active-state .item-inner:after {
 .floating-button {
   position: absolute;
   right: 16px;
-  bottom: 16px;
+  bottom: 30px;
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -3702,6 +3702,7 @@ label.label-radio.active-state .item-inner:after {
   -webkit-justify-content: center;
   justify-content: center;
 }
+
 html:not(.watch-active-state) .floating-button:active,
 .floating-button.active-state {
   background: #0c82df;
@@ -4629,8 +4630,8 @@ input.modal-text-input + input.modal-text-input {
   transform-origin: center bottom;
 }
 .popover.popover-on-bottom {
-  -webkit-transform-origin: center top;
-  transform-origin: center top;
+  // -webkit-transform-origin: center top;
+  // transform-origin: center top;
 }
 .popover.modal-in,
 .popover.modal-out {
