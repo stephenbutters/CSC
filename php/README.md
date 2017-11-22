@@ -47,6 +47,10 @@
 ![TEAMUP UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/jointeamui.png)
 ![TEAMUP UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/teamui.png)
 
-#### 5. Log Out
+#### 5. If You Want to Add a New Section in 'Parking Permit Switch', press 'Add Section' button and it will direct your to the parking request page, in that page, you just need to choose the parking permit number you have in the 'From' section, and choose two parking lots that you prefer to in the 'To' section
+![PARKING UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/parkingmainui.png)
+![PARKING UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/parkingrequestui.png)
+
+#### 6. Log Out
 
 ![LOGOUT UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/logoutui.png)

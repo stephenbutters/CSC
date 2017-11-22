@@ -6,7 +6,7 @@ To Help UCLA Students Change Class Sections, Switch Parking Permit, and Team Up 
 
 New Link on: [CLICK ME](http://ec2-13-57-38-240.us-west-1.compute.amazonaws.com/)
 
-Bruin Switch Beta 1.0 available(for Android only): [Download Direction](#)
+Bruin Switch Beta 1.0 available(for Android only): [Download Direction](#download-instructions)
 
 ## Introduction/Motivation
 
