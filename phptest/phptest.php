@@ -4,6 +4,19 @@ use PHPUnit\Framework\TestCase;
 class phptest extends TestCase
 {
     /**
+     * registerusers test
+     */
+     public function test_registerusers()
+     {
+        include '../php/registerusers.php';
+
+        //Test with a new user
+        $this->assertEquals(0, registerUser('testing@ucla.edu', 'testing', '123456', '1234567890'));
+        //Register same user again
+        $this->assertEquals(2, registerUser('testing@ucla.edu', 'testing', '123456', '1234567890'));
+     }
+
+    /**
      * userValidate test
      */
     public function test_userValidate()
@@ -15,6 +28,9 @@ class phptest extends TestCase
         $this->assertEquals(0, userValidate('hongkan', '123456'));
     }
 
+    /**
+     * changePwd test
+     */
     public function test_changePwd()
     {
         include '../php/changePwd.php';
@@ -24,13 +40,16 @@ class phptest extends TestCase
         $this->assertEquals(0, changePwd('hongkan', '123456', 'hongkanliu@gmail.com', '1234567890'));
     }
 
+    /**
+     * classSectionExchange test
+     */
     public function test_classSectionExchange()
     {
         include '../php/classSectionSubmit.php';
         include '../php/removeClassSection.php';
 
         // add a class section exchange
-        $this->assertEquals(0, classSectionSubmit('hongkan', 'ART - 1A', '1C', '1A'));       
+        $this->assertEquals(0, classSectionSubmit('hongkan', 'ART - 1A', '1C', '1A'));
         //Test add a duplicate class
         $this->assertEquals(1, classSectionSubmit('hongkan', 'ART - 1A', '1C', '1A'));
         // test with A REVERSE SECTION
