@@ -149,7 +149,8 @@ $$('#tishiyouxiang').on('click', function() {
     var popoverHTML = '<div class="popover popover2">'+
                           '<div class="popover-inner">'+
                             '<div class="list-block">'+
-                              '<ul style="margin-top20px;">'+
+                              '<span class="messagespan">Messages</span>'+
+                              '<ul style="margin-top: 20px;">'+
                                 tempDiv +
                               '</ul>'+
                             '</div>'+
