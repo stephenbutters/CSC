@@ -23,6 +23,14 @@
 ![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/mainui.png)
 ![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/sectioninfoui.png)
 
+##### 2.1 We add message notifications and feedback form, you can access them by clicking the button on the bottom right
+
+![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/mainui2.png)
+![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/mainui3.png)
+![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/messagetishi.png)
+![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/message.png)
+![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/feedback.png)
+
 #### 3. If You Want to Add a New Section, Click 'Add Section', Select the Subject and Class, and Choose a Section You Want to Switch From and the Section You Want to Switch To, Click 'Submit'
 
 ![SUBJECT UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/subjectui.png)
