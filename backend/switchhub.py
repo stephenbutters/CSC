@@ -12,6 +12,7 @@ from mysql.connector import errorcode
 
 def main():
     # my code here
+    
     options, remainder = getopt.gnu_getopt(sys.argv[1:], 'upcea', ['user=',
                                                              'password=',
                                                              'cellphone=',
@@ -54,6 +55,13 @@ def main():
             action = arg
         else:
             print "wrong args"
+
+    '''
+    todo:
+
+    able to receive GroupManager argument from command line
+    create Groupanager instances and call its methods
+    '''
     cnx = mysql_connect()
 
     if action == "createuser" :
