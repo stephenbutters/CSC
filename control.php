@@ -12,6 +12,9 @@ require "php/removeGroupSection.php";
 require "php/joinTeams.php";
 require "php/updateMesg.php";
 require "php/getMesg.php";
+require "php/submitParking.php";
+require "php/updateParking.php";
+require "php/removeParkingSection.php";
 $username = $_GET['username'];
 $pwd = $_GET['pwd'];
 $newpwd = $_GET['newpwd'];
@@ -25,6 +28,9 @@ $leader = $_GET['leader'];
 $remain = $_GET['remain'];
 $descs = $_GET['desc'];
 $teamname = $_GET['teamname'];
+$parkingFrom = $_GET['pfrom'];
+$parkingTo1 = $_GET['pto1'];
+$parkingTo2 = $_GET['pto2'];
 switch($action) {
 	case "userValidate":
 		echo userValidate($username, $pwd);
@@ -64,6 +70,15 @@ switch($action) {
 		break;
 	case "getMesg":
 		echo getMesg($username);
+		break;
+	case "submitParking":
+		echo submitParking($username, $parkingFrom, $parkingTo1, $parkingTo2);
+		break;
+	case "updateParking":
+		echo updateParking($username);
+		break;
+	case "removeParkingSection":
+		echo removeParkingSection($username);
 		break;
 }
 ?>

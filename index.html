@@ -77,7 +77,14 @@
                 </div></a>
                 <div class="accordion-item-content">
                   <div class="content-block">
-                    <div class="button button-fill button-blue" style="margin-bottom: 10px; margin-top: 10px; border-radius: 10px; height: 35px; width: 40%; left: 30%;"><a href="#classPage" style="color: white;">ADD SECTION</a></div>
+                    <div class="list-block">
+                      <ul id="parkinguldiv">
+                        <li>  
+
+                        </li>
+                      </ul>
+                    </div>
+                    <a href="#parkingpermitpage" class="button button-fill button-blue" style="margin-bottom: 10px; margin-top: 10px; border-radius: 10px; height: 35px; width: 40%; left: 30%;"><span style="color: white;">ADD SECTION</a></a>
                   </div>
                 </div>
               </li>
@@ -136,7 +143,7 @@
           <div data-page="classDivPage" class="page cached" style="overflow: auto;">
             <form data-search-list=".list-block-search-div" data-search-in=".item-title" class="searchbar searchbar-init" style="top: 65px; background-color: #4a5965; width: 90%; left: 5%; border-radius: 12px;">
               <div class="searchbar-input">
-              <input type="search" style="border-radius: 12px;" placeholder="Search Subject"><a href="#" class="searchbar-clear"></a>
+              <input type="search" style="border-radius: 12px;" placeholder="Search Class"><a href="#" class="searchbar-clear"></a>
               </div>
             </form>
             <div class="searchbar-overlay"></div>
@@ -151,7 +158,7 @@
           <div data-page="classDivPageGroup" class="page cached" style="overflow: auto;">
             <form data-search-list=".list-block-search-div-group" data-search-in=".item-title" class="searchbar searchbar-init" style="top: 65px; background-color: #4a5965; width: 90%; left: 5%; border-radius: 12px;">
               <div class="searchbar-input">
-              <input type="search" style="border-radius: 12px;" placeholder="Search Subject"><a href="#" class="searchbar-clear"></a>
+              <input type="search" style="border-radius: 12px;" placeholder="Search Class"><a href="#" class="searchbar-clear"></a>
               </div>
             </form>
             <div class="searchbar-overlay"></div>
@@ -160,6 +167,77 @@
                 <ul id="subjectULGroupDiv">
                 </ul>
               </div>
+            </div>
+          </div>
+
+          <div data-page="parkingpermitpage" class="page cached" style="overflow: auto;">
+            <div class="page-content" style="top: 15%;">
+              <div class="parkingpermituser">Parking Permit Switch</div>
+              <form>
+                <div class="list-block">
+                  <ul>
+                    <li class="item-content">
+                      <div class="item-inner blueback">
+                        <div class="item-title label">From <i class="fa fa-question-circle" id="ppfrom" aria-hidden="true"></i></div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+                        <select name="parkingfrom" class="selectoption" id="parkingfrom" style="text-align: center;">
+                          <option value="PARKING 1">PARKING 1</option>
+                          <option value="PARKING 2">PARKING 2</option>
+                          <option value="PARKING 3">PARKING 3</option>
+                          <option value="PARKING 4">PARKING 4</option>
+                          <option value="PARKING 5">PARKING 5</option>
+                          <option value="PARKING 6">PARKING 6</option>
+                          <option value="PARKING 7">PARKING 7</option>
+                          <option value="PARKING 8">PARKING 8</option>
+                          <option value="PARKING 9">PARKING 9</option>
+                        </select>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner blueback">
+                        <div class="item-title label">To <i class="fa fa-question-circle" id="ppto" aria-hidden="true"></i></div>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">First:</div>
+                        <select name="parkingto1" class="selectoption" id="parkingto1" style="text-align: center;">
+                          <option value="PARKING 1">PARKING 1</option>
+                          <option value="PARKING 2">PARKING 2</option>
+                          <option value="PARKING 3">PARKING 3</option>
+                          <option value="PARKING 4">PARKING 4</option>
+                          <option value="PARKING 5">PARKING 5</option>
+                          <option value="PARKING 6">PARKING 6</option>
+                          <option value="PARKING 7">PARKING 7</option>
+                          <option value="PARKING 8">PARKING 8</option>
+                          <option value="PARKING 9">PARKING 9</option>
+                        </select>
+                      </div>
+                    </li>
+                    <li class="item-content">
+                      <div class="item-inner">
+                        <div class="item-title label">Second:</div>
+                        <select name="parkingto2" class="selectoption" id="parkingto2" style="text-align: center;">
+                          <option value="PARKING 1">PARKING 1</option>
+                          <option value="PARKING 2">PARKING 2</option>
+                          <option value="PARKING 3">PARKING 3</option>
+                          <option value="PARKING 4">PARKING 4</option>
+                          <option value="PARKING 5">PARKING 5</option>
+                          <option value="PARKING 6">PARKING 6</option>
+                          <option value="PARKING 7">PARKING 7</option>
+                          <option value="PARKING 8">PARKING 8</option>
+                          <option value="PARKING 9">PARKING 9</option>
+                        </select>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+              <p><a href="#index" style="margin-left: 40px; margin-right: 40px;" class="button button-fill button-blue" id="changeparkingbtn">Submit</a></p>
             </div>
           </div>
 

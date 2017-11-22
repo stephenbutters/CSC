@@ -123,6 +123,42 @@ setInterval(function() {
     }
 }, 500);
 
+$$('#changeparkingbtn').on('click', function() {
+    var tempParkingFrom = document.getElementById("parkingfrom");
+    var parkingFrom = tempParkingFrom.options[tempParkingFrom.selectedIndex].value;
+    var tempParkingToFirst = document.getElementById("parkingto1");
+    var parkingToFirst = tempParkingToFirst.options[tempParkingToFirst.selectedIndex].value;
+    var tempParkingToSecond = document.getElementById("parkingto2");
+    var parkingToSecond = tempParkingToSecond.options[tempParkingToSecond.selectedIndex].value;
+    if(parkingFrom == parkingToFirst || parkingToFirst == parkingToSecond || parkingFrom == parkingToSecond) {
+        myApp.alert("You can't select the same section.", "ERROR");
+        return;
+    }
+    submitParking(parkingFrom, parkingToFirst, parkingToSecond);
+    asyncPreloader();
+});
+
+function submitParking(from, toFirst, toSecond) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200) {
+            if(parseInt(this.responseText) == 1) {
+                myApp.alert("You can only have up to one Parking Permit Switch section.", "Error");
+                return;
+            }
+        }
+    }
+    xmlhttp.open("GET", "control.php?action=submitParking&username="+uname+"&pfrom="+from+"&pto1="+toFirst+"&pto2="+toSecond, true);
+    xmlhttp.send();
+}
+
+function asyncPreloader() {
+    myApp.showPreloader('Processing');
+    setTimeout(function () {
+        myApp.hidePreloader();  
+    }, 800);
+}
+
 var curUnRead = 0;
 
 $$('#sectionAddBtn').on('click', function() {
@@ -390,7 +426,7 @@ $$('.login-screen .list-button').on('click', function () {
                 addSubjects();
                 firstLogin = 0;
             }
-        }, 100);
+        }, 400);
     } else if(result == "2"){
         myApp.alert('You have to go to your email and verfiy your account first.', 'INFO');
     } 
@@ -436,6 +472,7 @@ $$('#sectionAddBtn').on('click', function() {
     }
     xmlhttp.open("GET", "control.php?action=classSectionSubmit&username="+uname+"&class="+curClassName+"&secfrom="+curFrom+"&secto="+curTo, true);
     xmlhttp.send();
+    asyncPreloader();
 });
 
 $$('#raiseteambtn').on('click', function() {
@@ -461,6 +498,7 @@ $$('#raiseteambtn').on('click', function() {
     }
     xmlhttp.open("GET", "control.php?action=raiseTeam&leader="+uname+"&teamname="+teamName+"&class="+curClassName+"&secfrom="+section+"&remain="+recruteremain+"&desc="+descs, true);
     xmlhttp.send();
+    asyncPreloader();
 });
 
 $$('#backToIndexBtn').on('click', function() {
@@ -534,6 +572,36 @@ function threeBtn(classname) {
   })
 }
 
+function parkingInfo(from, to1, to2, date) {
+    myApp.modal({
+    title:  'Section Info',
+    text: 'From: '+from+'<br>To First: '+to1+'<br>To Second: '+to2+'<br>Time: '+date+'<br>Status: pending',
+    verticalButtons: true,
+    buttons: [
+      {
+        text: 'Remove',
+        onClick: function() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if(this.readyState == 4 && this.status == 200) {
+                    if(parseInt(this.responseText) != 0) {
+                        myApp.alert('Something went wrong with response code '+this.responseText, 'ERROR');
+                    }
+                }
+            }
+            xmlhttp.open("GET", "control.php?action=removeParkingSection&username="+uname, true);
+            xmlhttp.send();
+        }
+      },
+      {
+        text: 'Cancel',
+        onClick: function() {
+        }
+      },
+    ]
+  })
+}
+
 function joingroupBtn(classname, section, teamname, recrutesize, desc, date) {
     myApp.modal({
     title:  '<div class="buttons-row">'+
@@ -561,6 +629,8 @@ function joingroupBtn(classname, section, teamname, recrutesize, desc, date) {
                 myApp.hidePreloader();
                 getTeamInfo(classname);   
             }, 1500);
+            mainView.router.load({pageName: 'index'});
+            asyncPreloader();
         }
       },
       {
@@ -684,6 +754,31 @@ setInterval(function() {
         xmlhttp.open("GET", "control.php?action=updateGroupMain&username="+uname, false);
         xmlhttp.send();
     }   
+}, 1500);
+
+//PARKING INFO MAIN PAGE
+setInterval(function() {
+    if(firstLogin == 0) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                var obj3 = JSON.parse(this.responseText);
+                var tempID2 = document.getElementById("parkinguldiv");
+                tempID2.innerHTML = "";
+                for(var i = 0; i < obj3.length; i++) {
+                    var lidom = document.createElement("li");
+                    lidom.className = "button button-fill button-blue";
+                    lidom.style.cssText = 'width: 80%; left: 10%; border-radius: 10px; margin: 10px 0 10px 0; height: 50px;';
+                    lidom.setAttribute('onclick', "parkingInfo('"+obj3[i][0]+"', '"+obj3[i][1]+"', '"+obj3[i][2]+"', '"+obj3[i][3]+"')");
+                    var dDom = '<a href="#" style="color: white;"><span>'+obj3[i][0]+'</span></a>';
+                    lidom.innerHTML = dDom;
+                    tempID2.append(lidom);
+                }
+            }
+        }
+        xmlhttp.open("GET", "control.php?action=updateParking&username="+uname, false);
+        xmlhttp.send();
+    }
 }, 1500);
 
 // Generate dynamic page
