@@ -158,6 +158,31 @@ $$('#tishiyouxiang').on('click', function() {
   myApp.popover(popoverHTML, clickedLink);
 });
 
+function submitmesg() {
+    myApp.showPreloader('Processing');
+    setTimeout(function () {
+        myApp.hidePreloader();
+        myApp.alert('Thank you for your feedback!', 'INFO');   
+    }, 800);
+}
+
+$$('#mainpagecomment').on('click', function() {
+    var clickedLink = this;
+    var popoverHTML = '<div class="popover popover3">'+
+                        '<div class="popover-inner">'+
+                            '<div class="titlemesg">'+
+                                'Leave Us A Comment'+
+                            '</div>'+
+                            '<textarea autofocus placeholder="We need your feedback!" class="textmesg">'+
+                            '</textarea>'+
+                            '<a href="#" class="close-popover button button-fill button-raised color-blue" onClick="submitmesg()" id="mainsubmitcomment">'+
+                                'Submit'+
+                            '</a>'+
+                        '</div>'+
+                      '</div>'
+    myApp.popover(popoverHTML, clickedLink);
+});
+
 function setAllMesgRead() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
