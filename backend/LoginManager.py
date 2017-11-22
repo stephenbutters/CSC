@@ -1,6 +1,8 @@
 import mysql.connector
+import sys
 
 class loginManager:
+    print (sys.__doc__)
     cnx = None
 
     def __init__(self, cnx):
