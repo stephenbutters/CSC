@@ -23,7 +23,7 @@
 ![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/mainui.png)
 ![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/sectioninfoui.png)
 
-##### 2.1 We add message notifications and feedback form, you can access them by clicking the button on the bottom right
+##### 2.1 We add message notifications and feedback form, you can access them by clicking the button on the bottom right (Unread messages are shown in red, otherwise they are shown in black)
 
 ![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/mainui2.png)
 ![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/mainui3.png)
