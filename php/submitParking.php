@@ -30,22 +30,22 @@
 				$title = "Status Update";
 				//GET USER EMAIL
 				$query = "SELECT `email` FROM `users` WHERE `fullname`='$username'";
-				if($result = mysqli_query($link, $query)) {
-					$row = mysqli_fetch_row($result);
-					$userEmail = $row[0];
-					//SEND EMAIL TO USER
-					$content = format_emailContent($username, "bogus", 5, "bogus", $parkingFrom, $matchFrom, $matchEmail);
-					send_mail($userEmail, $username, $title, $content);
-					//SEND EMAIL TO MATCHER
-					$content = format_emailContent($matchUser, "bogus", 5, "bogus", $matchFrom, $parkingFrom, $userEmail);
-					send_mail($matchEmail, $matchUser, $title, $content);
-					//UPDATE message DB FOR BOTH USERS
-					$query1 = "INSERT `message` VALUES ('$username', 'Parking Permit Switch', 0, curdate())";
-	        		mysqli_query($link, $query1);
-	        		$query1 = "INSERT `message` VALUES ('$matchUser', 'Parking Permit Switch', 0, curdate())";
-	        		mysqli_query($link, $query1);
-	        		return "0";
-				}
+				//if($result = mysqli_query($link, $query)) {
+				$row = mysqli_fetch_row(mysqli_query($link, $query));
+				$userEmail = $row[0];
+				//SEND EMAIL TO USER
+				$content = format_emailContent($username, "bogus", 5, "bogus", $parkingFrom, $matchFrom, $matchEmail);
+				send_mail($userEmail, $username, $title, $content);
+				//SEND EMAIL TO MATCHER
+				$content = format_emailContent($matchUser, "bogus", 5, "bogus", $matchFrom, $parkingFrom, $userEmail);
+				send_mail($matchEmail, $matchUser, $title, $content);
+				//UPDATE message DB FOR BOTH USERS
+				$query1 = "INSERT `message` VALUES ('$username', 'Parking Permit Switch', 0, curdate())";
+        		mysqli_query($link, $query1);
+        		$query1 = "INSERT `message` VALUES ('$matchUser', 'Parking Permit Switch', 0, curdate())";
+        		mysqli_query($link, $query1);
+        		return "0";
+				
 			}
 		}
 		//NO MATCH FOUND, INSERT THE SECTION INTO DB
