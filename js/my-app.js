@@ -183,9 +183,9 @@ $$('#tishiyouxiang').on('click', function() {
     }
     if(mesgs.length == 0) tempDiv += '<span class="nomessagediv">No Messages!</span>'
     var popoverHTML = '<div class="popover popover2">'+
+                          '<span class="messagespan">Messages</span>'+
                           '<div class="popover-inner">'+
                             '<div class="list-block">'+
-                              '<span class="messagespan">Messages</span>'+
                               '<ul style="margin-top: 20px;">'+
                                 tempDiv +
                               '</ul>'+

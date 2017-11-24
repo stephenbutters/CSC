@@ -33,8 +33,10 @@ This section requires users to enter their current parking lot number, and parki
 
 #### [FOR MORE UI INFO](https://github.com/HKanLiu/CSC/blob/master/php/README.md)
 
-#### Download Instructions
+-------------------------------------------------------------------------------------
 
-##### We have only come up with Android version for Bruin Switch, and IOS version will be coming up soon.
+### Download Instructions
 
-##### For now, we just put the APK file for Bruin Switch Beta 1.0 on Dropbox, so you need to have Dropbox download on your phone, copy and paste [this link](https://www.dropbox.com/s/7iv9vmqvcei1ajl/H5F354EB8_1120134449.apk?dl=0) to your browser, select 'Open in app'. It will direct you to Dropbox link, then hit download.
+#### We have only come up with Android version for Bruin Switch, and IOS version will be coming up soon.
+
+#### For now, we just put the APK file for Bruin Switch Beta 1.0 on Dropbox, so you need to have Dropbox download on your phone, copy and paste [this link](https://www.dropbox.com/s/2yk1hxdekz4vyjr/H5F354EB8_1124131451.apk?dl=0) to your browser, select 'Open in app'. It will direct you to Dropbox link, then hit download.
