@@ -1,5 +1,5 @@
 """
-yeeee
+yeee
 """
 
 import sys
@@ -7,6 +7,7 @@ import getopt
 import mysql.connector
 import LoginManager
 import DiscussionManager
+import MysqlConnector
 
 from mysql.connector import errorcode
 
@@ -21,7 +22,12 @@ def main():
                                                              'sectionfrom=',
                                                              'sectionto=',
                                                              'userid=',                                                  
-                                                             'action='                                       
+                                                             'action=',
+                                                             'leader=",
+                                                             'teamname=',
+                                                             'section=',
+                                                             'remain=',
+                                                             'desc='
                                                           ])
 
     user = "empty_user"
@@ -33,6 +39,11 @@ def main():
     sectionfrom = "empty_section"
     sectionto = "empty_section"
     userid = "empty_userid"
+    leader = "empty_leader"
+    teamname = "empty_teamname"
+    section = "empty_section"
+    remain = "empty_remain"
+    desc = "empty_remain"
 
     for opt, arg in options:
         if opt in ('-u', '--user'):
@@ -53,6 +64,16 @@ def main():
             sectionto = arg
         elif opt in ('--action'):
             action = arg
+        elif opt in ('--leader'):
+            leader = arg
+        elif opt in ('--teamname'):
+            teamname = arg
+        elif opt in ('--sction'):
+            section = arg
+        elif opt in ('--remain'):
+            remain = arg
+        elif opt in ('--desc'):
+            desc = arg
         else:
             print "wrong args"
 
@@ -62,7 +83,10 @@ def main():
     able to receive GroupManager argument from command line
     create Groupanager instances and call its methods
     '''
-    cnx = mysql_connect()
+    sqlconnector = MysqlConnector.mysqlconnector("hongkan", "aa6418463", 
+                                                 "realone.c0hpz27iuq3x.us-west-1.rds.amazonaws.com", 
+                                                 "GJ_TEST_DB")
+    cnx = sqlconnector.mysql_connect()
 
     if action == "createuser" :
         login_manager = LoginManager.loginManager(cnx)
@@ -80,11 +104,17 @@ def main():
     elif action == "getjson" :
         discussion_manager = DiscussionManager.discussionManager(cnx)
         discussion_manager.getJSON(userid)
+    elif action == "raiseTeam" :
+        team_manager = TeanManager.teamManager(cnx)
+        print(team_manager.raise_team(leader, teamname, classstring, section, remain, desc))
+    elif action == "joinTeam" :
+        team_manager = TeanManager.teamManager(cnx)
+        print(join_teams(username, teamname, classstring, section))
     cnx.close()
 
 
 
-
+'''
 def mysql_connect():
     try:
         cnx = mysql.connector.connect(user='hongkan', password='aa6418463',
@@ -99,7 +129,7 @@ def mysql_connect():
             print(err)
     else:
         return cnx
-
+'''
     
 if __name__ == "__main__":
     main()
