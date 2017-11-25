@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 .tishixinxi {
   position: absolute;
   right: 14px;
@@ -54,12 +55,46 @@
   max-height: 400px;
   min-height: 100px;
   overflow: auto;
-  border-radius: 12px;
+  border-radius: 12px !important;
+  width: 320px !important;
+  left: 50% !important;
+  margin-left: -160px !important;
+}
+
+.popover3 {
+  height: 350px !important;
+  width: 320px !important;
+  left: 50% !important;
+  top: 50% !important;
+  margin: -175px 0 0 -160px !important;
+  border-radius: 15px !important;
+  position: absolute;
 }
 
 .mesglist {
-  padding: 10px;
+  margin: 10px;
   border-bottom: 2px solid #6396e8;
+}
+
+.textmesg {
+  margin: 20px;
+  border: 1px solid blue;
+  width: 279px;
+  height: 150px;
+  padding: 0;
+  font-size: 20px;
+}
+
+.titlemesg {
+  margin: 20px;
+  width: 280px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-family: 'Indie Flower', cursive;
 }
 
 .classinfos {
@@ -83,4 +118,39 @@
   align-items: flex-end;
   justify-content: flex-end;
   color: #6396e8;
+}
+
+.messagespan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  height: 50px;
+  color: white;
+  background-color: #6396e8;
+}
+
+#mainsubmitcomment {
+  width: 80px;
+  height: 35px;
+  left: 50%;
+  margin: 20px 0 0 -40px;
+}
+
+.blueback {
+  background-color: #b1bbcc;
+  color: white;
+  font-size: 20px;
+  margin-right: 16px;
+  padding-left: 10px;
+}
+
+.parkingpermituser {
+  font-size: 23px;
+  text-align: center;
+  width: 100%;
+}
+
+.selectoption {
+  padding-left: 45%;
 }

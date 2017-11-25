@@ -12,7 +12,7 @@
 		$mail->SMTPAuth = true;
 		$mail->Host = 'smtp-mail.outlook.com';
 		$mail->Username = "hongkanliu@hotmail.com";
-		$mail->Password = "091013kanye.";
+		$mail->Password = "Aa123456789";
 		$mail->SMTPSecure = 'tls';
 		$mail->Port = 587;
 		$mail->SetFrom("hongkanliu@hotmail.com", "Bruin Switch");

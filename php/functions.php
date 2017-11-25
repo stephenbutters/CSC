@@ -40,6 +40,15 @@
 
 						Best Regards,<br>
 						The Team 404';
+		} else if($register == 5) {
+			$message = 'HI, '.$username.'!<br><br>
+
+						We have found you a match for Parking Permit Switch section from: '.$secfrom.', to section: '.$secto.'. You can contact your partner by emailing to: '.$email.'.<br><br>
+
+						Thank you for using BRUIN SWITCH, and GLHF!<br><br>
+
+						Best Regards,<br>
+						The Team 404';
 		}
 		return $message;
 	}

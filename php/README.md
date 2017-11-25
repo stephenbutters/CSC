@@ -23,6 +23,14 @@
 ![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/mainui.png)
 ![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/sectioninfoui.png)
 
+##### 2.1 We add message notifications and feedback form, you can access them by clicking the button on the bottom right (Unread messages are shown in red, otherwise they are shown in black)
+
+![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/mainui2.png)
+![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/mainui3.png)
+![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/messagetishi.png)
+![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/message.png)
+![Main UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/feedback.png)
+
 #### 3. If You Want to Add a New Section, Click 'Add Section', Select the Subject and Class, and Choose a Section You Want to Switch From and the Section You Want to Switch To, Click 'Submit'
 
 ![SUBJECT UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/subjectui.png)
@@ -39,6 +47,10 @@
 ![TEAMUP UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/jointeamui.png)
 ![TEAMUP UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/teamui.png)
 
-#### 5. Log Out
+#### 5. If You Want to Add a New Section in 'Parking Permit Switch', press 'Add Section' button and it will direct your to the parking request page, in that page, you just need to choose the parking permit number you have in the 'From' section, and choose two parking lots that you prefer to in the 'To' section
+![PARKING UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/parkingmainui.png)
+![PARKING UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/parkingrequestui.png)
+
+#### 6. Log Out
 
 ![LOGOUT UI](https://github.com/HKanLiu/CSC/blob/master/screenshot/logoutui.png)

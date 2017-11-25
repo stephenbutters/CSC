@@ -4,7 +4,9 @@
 
 To Help UCLA Students Change Class Sections, Switch Parking Permit, and Team Up a Group.
 
-New Link on: http://ec2-13-57-38-240.us-west-1.compute.amazonaws.com/
+New Link on: [CLICK ME](http://ec2-13-57-38-240.us-west-1.compute.amazonaws.com/)
+
+Bruin Switch Beta 1.0 available(for Android only): [Download Direction](#download-instructions)
 
 ## Introduction/Motivation
 
@@ -29,4 +31,12 @@ This section requires users to enter their current parking lot number, and parki
 
 #### More Exciting Features are coming!
 
-### FOR MORE UI INFO: https://github.com/HKanLiu/CSC/blob/master/php/README.md
+#### [FOR MORE UI INFO](https://github.com/HKanLiu/CSC/blob/master/php/README.md)
+
+-------------------------------------------------------------------------------------
+
+### Download Instructions
+
+#### We have only come up with Android version for Bruin Switch, and IOS version will be coming up soon.
+
+#### For now, we just put the APK file for Bruin Switch Beta 1.0 on Dropbox, so you need to have Dropbox download on your phone, copy and paste [this link](https://www.dropbox.com/s/2yk1hxdekz4vyjr/H5F354EB8_1124131451.apk?dl=0) to your browser, select 'Open in app'. It will direct you to Dropbox link, then hit download.
