@@ -10,3 +10,10 @@ To run the tests, simply type the command under phptest directory
 ```php
 phpunit phptest
 ```
+
+### Help
+For more command options, consult with the following command
+```php
+phpunit --help
+```
+Or read the description here [https://phpunit.de/manual/current/en/textui.html](https://phpunit.de/manual/current/en/textui.html)
