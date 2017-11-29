@@ -26,4 +26,3 @@
 		mysqli_close($link);
 	}
 ?>
-
